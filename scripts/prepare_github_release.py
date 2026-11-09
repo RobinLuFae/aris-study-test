@@ -19,7 +19,7 @@ readme=readme.replace('Public hosting is pending until the user supplies and aut
 readme+='''
 ## Review and course-submission status
 
-This is a research-course draft, with real measured results and an AI-process record. The numerical audit returned WARN; identified rounding/units were corrected. Final independent post-edit review and writing review remain pending because the original AI session reached its fresh-reviewer thread limit. Six scientific citations were individually reviewed; the ARIS software citation is still pending independent review. Author details and student-authored reflections remain to be completed. See `paper/ACCEPTANCE_CHECK.md` and `notes/课程作业_AI使用过程与复盘.md`.
+This is a research-course paper with real measured results and an AI-process record. Two fresh writing reviews were completed; eight cited references were verified; the final empirical/numerical audit returned PASS. All semantic reviews remain same-family and provisional, and course readiness is separate from top-venue original-research acceptance. Author and institution fields intentionally use placeholders at the student's request. The student will write personal reflections after reading `notes/ARIS语义通信研究全过程记录.md`. See the current audit records and `paper/ACCEPTANCE_CHECK.md`.
 
 The repository intentionally excludes author source repositories, checkpoint binaries, dataset pixels, Python environments and credentials. Original raw records retain historical absolute machine paths; the reproduction guide explains new-machine use. No credentials are embedded in those paths.
 '''

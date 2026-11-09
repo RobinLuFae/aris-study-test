@@ -2,6 +2,12 @@
 from pathlib import Path
 import json
 import re
+import argparse
+
+ap=argparse.ArgumentParser()
+ap.add_argument('--run',default='2026-11-09_run01')
+ap.add_argument('--keys',nargs='*')
+args=ap.parse_args()
 
 ROOT=Path(__file__).resolve().parents[1]
 paper=ROOT/'paper'
@@ -9,11 +15,13 @@ scope=(ROOT/'.agents/skills/shared-references/review-scope-limits.md').read_text
 texfiles=[paper/'main.tex']+sorted((paper/'sections').glob('*.tex'))+sorted((paper/'figures').glob('*.tex'))
 bib=(paper/'references.bib').read_text(encoding='utf-8')
 matches=list(re.finditer(r'@\w+\{([^,]+),',bib))
-folder=ROOT/'.aris/traces/citation-audit/2026-11-09_run01'
+folder=ROOT/'.aris/traces/citation-audit'/args.run
 folder.mkdir(parents=True,exist_ok=True)
 contexts=[]
 for n,match in enumerate(matches):
     key=match[1];entry=bib[match.start():matches[n+1].start() if n+1<len(matches) else len(bib)]
+    if args.keys and key not in args.keys:continue
+    if (folder/f'{key}.request.json').exists():raise ValueError('Preserve old dispatch records; choose a new run directory')
     uses=[]
     for f in texfiles:
         text=f.read_text(encoding='utf-8')

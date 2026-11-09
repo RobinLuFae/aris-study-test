@@ -1,6 +1,6 @@
 # Course draft acceptance check
 
-Executor check against the frozen `PAPER_ACCEPTANCE_CONTRACT.md`. This is not a fresh semantic review and does not replace the blocked writing/audit stages.
+Executor check against the frozen `PAPER_ACCEPTANCE_CONTRACT.md`, supplemented by two fresh writing reviews, the final fresh empirical audit and per-entry citation reviews. Same-family assurance remains provisional.
 
 | Clause | Status | Evidence / remaining issue |
 |---|---|---|
@@ -13,10 +13,10 @@ Executor check against the frozen `PAPER_ACCEPTANCE_CONTRACT.md`. This is not a 
 | 7 | Met | Pooled-MSE PSNR, batch-cluster pairing, last-batch weighting and conditional intervals explained; independent arithmetic replay agrees. |
 | 8 | Met | Absolute PSNR, losses and intervals shown; dense grid, knots/interpolation, domain and eight-point scope explained. |
 | 9 | Met | Historical P001 labeled 8,000 updates; full-grid linear3 and nearest5 losses retained. No speedup claim. |
-| 10 | Partial | Six scientific entries independently reviewed, one supported author-name correction applied; ARIS software-entry reviewer unavailable. |
+| 10 | Met | Eight cited entries independently checked by entry; metadata corrections confirmed in same-entry follow-ups. |
 | 11 | Met | Limitations consolidated: finite-budget reproduction, one trajectory/architecture/dataset/channel, unestablished paper parity, no RF/NTN/task-semantic or speed evidence. |
-| 12 | Met by executor | Official CVPR 2026 style, four main-text pages plus references and appendix; complete PDF rendered and visually inspected; no undefined references or overflow warnings. |
-| 13 | Partial | Actual ARIS phases and corrections documented; some older exact prompts unrecovered; no invented student feelings. Final writing-review rounds remain unavailable. |
-| 14 | Partial | Public code/results repository verified: https://github.com/RobinLuFae/aris-study-test . Author details and student-authored reflection remain pending. |
+| 12 | Met | Official CVPR 2026 style; five pages total including references/appendix. Every rendered page visually inspected; no undefined references or overflow warnings. |
+| 13 | Met with disclosed archival gap | Actual phases, fixes and reviews recorded; both fresh writing rounds completed. Some older exact prompts remain unrecovered and explicitly marked. No invented student feelings. |
+| 14 | Met within user-directed scope | Public repository verified. On 2026-11-09 the user explicitly requested author/institution placeholders and a standalone process record to read before writing personal reflections. This supersedes the earlier assumption that real author details must be supplied. |
 
-Overall: **reviewable course draft; final independent post-edit audit and writing review pending**. Neither full submission readiness nor complete course submission is claimed.
+Overall: **course-paper deliverable ready with provisional same-family assurance**. Final empirical audit PASS, citation audit PASS, writing rounds 8/Almost → 9/Yes. Author/institution placeholders are intentional; the student's personal reflection remains their own next step. No claim of top-venue research acceptance is made.

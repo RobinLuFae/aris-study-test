@@ -1,4 +1,6 @@
-# Paper plan:WITT SNR-gate tabulation
+# Paper plan: WITT SNR-gate tabulation (implemented)
+
+Latest completion: title **Reducing WITT Model Storage by Tabulating Scalar SNR Gates**; five total pages; eight verified citations; two fresh writing reviews completed; final fresh empirical audit PASS. User intentionally requests author/institution placeholders. The earlier planning notes below are historical. See paper/PAPER_WRITING_REPORT.md and the current acceptance check.
 
 Target:CVPR2026format for course empiricalreport,anonymousauthor untilstudentfillsdetails;assurance=draft,executorwriterfallback(noexternalwriterconfigured). Maintexttarget3–5pages,within8pageformatlimit;references/AIappendixseparate. Not a CVPRsubmission. InputNARRATIVE_REPORT.md;semanticclaimjudgmentpendingfreshfinalaudit.
 

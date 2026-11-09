@@ -9,7 +9,7 @@ The implementation restores the latent scale after transmission and passes the r
 We use the author's CIFAR-10 configuration with latent width $C=32$, two encoder stages of depths $[2,4]$, embedding dimensions $[128,256]$, and window size 2. The decoder reverses these stages. The channel bandwidth ratio (CBR) is $1/3$, defined as complex channel uses divided by real source samples. The original deployment has 13,715,056 learned parameters. The local training wrapper imports the author's model and channel components without modifying their source.
 
 \subsection{Scalar gate tabulation}
-For each of the 14 gates, let $h_j(s)\in\mathbb{R}^{384}$ be its trained scalar-to-vector map. Each map is a multilayer perceptron (MLP) with dimensions $1\to384\to384\to384$, hidden ReLU activations, and a final sigmoid. Including biases, it contains
+For each of the 14 gates, let $h_j(s)\in\mathbb{R}^{384}$ be its trained scalar-to-vector map. Each gate multiplies image-derived hidden features elementwise in a feature-modulation branch. A final image-dependent projection and sigmoid produce weights that rescale the encoder or decoder features. Tabulation replaces only $h_j$, retaining this image-dependent branch. Each scalar map is a multilayer perceptron (MLP) with dimensions $1\to384\to384\to384$, hidden ReLU activations, and a final sigmoid. Including biases, it contains
 \begin{equation}
  (384+384)+2(384^2+384)=296{,}448
 \end{equation}
@@ -22,7 +22,7 @@ For $K$ uniformly spaced knots $s_k\in[1,13]$ dB, we evaluate $v_{j,k}=h_j(s_k)$
 \end{equation}
 The main deployment uses $K=13$, giving integer-dB knots. Both the knots and gate outputs are stored as buffers. Their total is $14\times13\times(384+1)=70{,}070$ FP32 values, or 280,280 raw bytes. The retained learned-parameter count is 9,564,784. All image-dependent feature transformations, the Swin backbone, the channel implementation, and CBR remain unchanged. Compilation requires no additional training.
 
-We measure storage from the complete serialized inference files, including metadata, buffers, and serialization overhead. These files exclude optimizer state. We separately check that 223 retained non-gate tensors are unchanged and compare a freshly compiled deployment with the same deployment loaded from its saved file. The recorded maximum output difference for this same-variant witness is zero. This checks serialization fidelity; the original-versus-table reconstruction difference is measured separately.
+We measure storage from the complete serialized inference files, including metadata, buffers, and serialization overhead. These files exclude optimizer state. We separately check that 223 retained non-gate tensors are unchanged and compare a freshly compiled deployment with the same deployment loaded from its saved file. The recorded maximum output difference for this reload check is zero. Original-versus-table reconstruction differences are measured separately.
 
 \begin{table}[t]
  \centering\small

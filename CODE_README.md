@@ -1,6 +1,6 @@
 # WITT SNR-gate tabulation: course reproduction package
 
-This package accompanies **Post-Training SNR-Gate Tabulation for Wireless Image Transmission: A Reproducible Study of WITT**. It contains the local research wrappers, frozen configurations, measured results, figure generators, and paper sources. The study uses one finite-budget training trajectory; matching the original paper's numerical results or establishing convergence remains unfinished.
+This package accompanies **Reducing WITT Model Storage by Tabulating Scalar SNR Gates**. It contains the local research wrappers, frozen configurations, measured results, figure generators, and paper sources. The study uses one finite-budget training trajectory; numerical parity with the original paper and convergence remain unestablished.
 
 ## Main measured result
 
@@ -53,4 +53,4 @@ Frozen configurations contain historical absolute paths and identify completed r
 
 `paper/main.tex` uses the official CVPR 2026 author-kit style; this is a course paper, not a CVPR submission. `scripts/Compile-CoursePaper.ps1` is adapted to the original machine's existing MiKTeX location, disables automatic package installation and shell escape, and uses project-local TeX components. On another machine, compile `paper/main.tex` with an already configured LaTeX distribution. The `.sty` and `.bst` files retain their upstream notices.
 
-See `THIRD_PARTY_NOTICES.md`. WITT, ARIS, CIFAR-10, and downloaded papers retain their original authorship. The source bundle excludes author repositories, dataset pixels, downloaded research PDFs, account credentials, environments, and private CLI state. Public code and measured results: https://github.com/RobinLuFae/aris-study-test . The user authorized this public repository; remaining independent reviews, author details and student reflections are separate pending items.
+See `THIRD_PARTY_NOTICES.md`. WITT, ARIS, CIFAR-10, and downloaded papers retain their original authorship. The source bundle excludes author repositories, dataset pixels, downloaded research PDFs, account credentials, environments, and private CLI state. Public code and measured results: https://github.com/RobinLuFae/aris-study-test . Two fresh writing reviews and the final empirical/citation audits are complete with same-family provisional assurance. Author/institution placeholders are intentional. The student will write personal reflections after reading the separate Chinese research-process record.

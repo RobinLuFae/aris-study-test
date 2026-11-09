@@ -9,7 +9,9 @@ OUT.mkdir(parents=True,exist_ok=True)
 files=set()
 for skill,run in [('paper-claim-audit','2026-11-09_run01'),('citation-audit','2026-11-09_run01'),
                   ('paper-figure','2026-11-09_run01'),('auto-review-loop','2026-11-08_run01'),
-                  ('research-refine','2026-11-08_run01'),('research-review','2026-11-08_run01')]:
+                  ('research-refine','2026-11-08_run01'),('research-review','2026-11-08_run01'),
+                  ('citation-audit','2026-11-09_run02'),('paper-claim-audit','2026-11-09_run02'),
+                  ('auto-paper-improvement-loop','2026-11-09_run01')]:
     files.update((ROOT/'.aris/traces'/skill/run).glob('*.response.md'))
 for base,pattern in [('scripts','*.py'),('scripts','*.ps1'),('configs','*.json'),
                      ('results','*.json'),('paper','*.tex'),('paper','*.bib'),
@@ -24,7 +26,8 @@ for name in ['CODE_README.md','THIRD_PARTY_NOTICES.md','GPU_ENVIRONMENT.md',
              'refine-logs/EXPERIMENT_PLAN.md','refine-logs/EXPERIMENT_TRACKER.md',
              'refine-logs/EXPERIMENT_RESULTS.md','paper/PAPER_CLAIM_AUDIT.json',
              'paper/PAPER_CLAIM_AUDIT.md','paper/CITATION_AUDIT.json','paper/CITATION_AUDIT.md',
-             'paper/PAPER_IMPROVEMENT_LOG.md','paper/ACCEPTANCE_CHECK.md',
+             'paper/PAPER_IMPROVEMENT_LOG.md','paper/ACCEPTANCE_CHECK.md','paper/PAPER_WRITING_REPORT.md',
+             'paper/PAPER_IMPROVEMENT_STATE.json',
              'logs/R003-checkpoint-selection.json','logs/resume-equivalence.json',
              'third_party/ARIS-LICENSE']:
     if (ROOT/name).is_file():files.add(ROOT/name)

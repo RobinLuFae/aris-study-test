@@ -1,93 +1,109 @@
 {
   "audit_skill": "citation-audit",
-  "verdict": "BLOCKED",
-  "reason_code": "fresh_reviewer_capacity",
-  "summary": "Six scientific entries reviewed with supported contexts; one metadata fix applied; seventh software-entry review unavailable.",
+  "verdict": "PASS",
+  "reason_code": "all_cited_entries_verified",
+  "summary": "Eight cited entries have primary-source existence/metadata checks and supported uses; earlier metadata FIX findings were resolved and checked by the same entry reviewers.",
   "audited_input_hashes": {
-    "references.bib": "sha256:d6baebb9c0f2a6c2e1c010df70c4ff65d6f140e7077d656e9667db4d337b7946",
-    ".aris/citation-audit/contexts.txt": "sha256:6e3c2cdf9566cdd49a7a12bf0b57f255ecbd026d44770529f46a47648d5c5be2",
-    "sections/0_abstract.tex": "sha256:e3503bc2969ed3ee099cf838eecc09e662049cbf06548f2f1fabafd1868ae094",
-    "sections/1_introduction.tex": "sha256:1333248f6ff5d62f863cc3599c0916680c7f3960338f445039a096ce725a79e2",
-    "sections/2_related_work.tex": "sha256:d2c8c17fc2cc43a533ca1d3f1d997d9ec0a779dc12fd8841723fc9d8dcd3fbc4",
-    "sections/3_method.tex": "sha256:0a46ff62d1ecdb36a16823fec591e48f5ba3c48d712c24ea913477a77f4ed954",
-    "sections/4_protocol.tex": "sha256:381c9c565c5211f2a2a5c86d71b623b9bbd32ff2b441cc00a1404e1dfcca8993",
-    "sections/5_results.tex": "sha256:d0d698d27bae0ed08b768e192387220e61c221161dfdb0bad688a31460dc0c78",
-    "sections/6_conclusion.tex": "sha256:bc9b3fc3cb84f28f2dbc78288d11fb932129bd5418180b986e05236d13e5273a",
-    "sections/7_appendix.tex": "sha256:326fc86f916ff4f7ff23017c39cafc7b5a5f80b66d2939d18bed4cd74f322105"
+    "references.bib": "sha256:8f931514c34e4e1cb20be282343105610faffab35cb347fe4dca07f304070209",
+    ".aris/citation-audit/contexts.txt": "sha256:367034b75ca5297b56f35eb8d310c5978cfb99e143913bd51236d82f79b652c3"
   },
-  "trace_path": "D:\\Electronic\\ChatGPT\\Codex\\\u4eba\u5de5\u667a\u80fd\u4e0e\u4fe1\u606f\u641c\u7d22\\AIRS\\.aris\\traces\\citation-audit\\2026-11-09_run01",
+  "trace_path": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\.aris\\traces\\citation-audit",
   "thread_id": null,
-  "requested_reviewer_model": "gpt-6-astra",
   "reviewer_model": null,
+  "requested_reviewer_model": "gpt-6-astra",
   "reviewer_family": "openai",
   "reviewer_reasoning": null,
   "requested_reasoning": "xhigh",
   "review_independence": "same-family",
   "acceptance_status": "provisional",
-  "generated_at": "2026-11-09T04:27:46.291513+00:00",
+  "generated_at": "2026-11-09T09:50:41.883175+00:00",
   "details": {
-    "total_entries": 7,
+    "total_entries": 8,
     "counts": {
-      "KEEP": 5,
-      "FIX": 1,
-      "REVIEW_UNAVAILABLE": 1
+      "KEEP": 8
     },
     "per_entry": [
       {
         "key": "bourtsoulatze2019deep",
-        "verdict": "FIX",
+        "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\bourtsoulatze2019deep.response.md",
-        "fix_status": "Author spelling corrected by executor from primary-source-supported reviewer recommendation; not re-reviewed."
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run02\\bourtsoulatze2019deep.response.md",
+        "thread_id": "/root/cite_deepjscc_20261109",
+        "continuation": true
       },
       {
         "key": "yang2023witt",
         "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\yang2023witt.response.md",
-        "fix_status": null
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run01\\yang2023witt.response.md",
+        "thread_id": "/root/cite_witt_20261109",
+        "continuation": false
       },
       {
         "key": "xu2022adaptive",
         "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\xu2022adaptive.response.md",
-        "fix_status": null
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run01\\xu2022adaptive.response.md",
+        "thread_id": "/root/cite_adaptive_20261109",
+        "continuation": false
       },
       {
         "key": "yang2025swinjscc",
         "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\yang2025swinjscc.response.md",
-        "fix_status": null
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run01\\yang2025swinjscc.response.md",
+        "thread_id": "/root/cite_swinjscc_20261109",
+        "continuation": false
       },
       {
         "key": "jo2021practical",
         "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\jo2021practical.response.md",
-        "fix_status": null
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run01\\jo2021practical.response.md",
+        "thread_id": "/root/cite_lut_20261109",
+        "continuation": false
       },
       {
         "key": "krizhevsky2009learning",
         "verdict": "KEEP",
         "existence": "YES",
-        "contexts": "SUPPORTS",
-        "response": ".aris\\traces\\citation-audit\\2026-11-09_run01\\krizhevsky2009learning.response.md",
-        "fix_status": null
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run01\\krizhevsky2009learning.response.md",
+        "thread_id": "/root/cite_cifar_20261109",
+        "continuation": false
       },
       {
         "key": "yin2026aris",
-        "verdict": "REVIEW_UNAVAILABLE",
-        "reason": "Fresh native dispatch failed before execution: agent thread limit reached",
-        "executor_primary_lookup": "Official GitHub repository was opened; this is not an independent review."
+        "verdict": "KEEP",
+        "existence": "YES",
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run02\\yin2026aris.response.md",
+        "thread_id": "/root/cite_aris_resume_20261109",
+        "continuation": true
+      },
+      {
+        "key": "yang2026aris",
+        "verdict": "KEEP",
+        "existence": "YES",
+        "metadata": "correct",
+        "uses": "SUPPORTS",
+        "trace": ".aris\\traces\\citation-audit\\2026-11-09_run02\\yang2026aris.response.md",
+        "thread_id": "/root/cite_aris_report_20261109b",
+        "continuation": false
       }
     ],
-    "input_note": "File identities recorded at aggregation; six exact per-entry dispatch contexts remain in request/prompt files. Final metadata fixes have not been re-reviewed."
+    "context_note": "Current citing contexts saved. Unchanged scientific attribution claims retain their earlier entry reviews; expanded local training descriptions are project protocol, not claims attributed to dataset papers. Exact earlier dispatch contexts remain in trace requests."
   }
 }

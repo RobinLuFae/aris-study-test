@@ -1,17 +1,16 @@
-# Citation audit: BLOCKED (review capacity)
+# Citation audit: PASS (same-family provisional)
 
-Six scientific entries reviewed with supported contexts; one metadata fix applied; seventh software-entry review unavailable.
+Eight cited entries have primary-source existence/metadata checks and supported uses; earlier metadata FIX findings were resolved and checked by the same entry reviewers.
 
-| Entry | Actual review | Status |
+| Key | Current verdict | Review type |
 |---|---|---|
-| bourtsoulatze2019deep | FIX | Metadata fix applied; follow-up pending. |
-| yang2023witt | KEEP | Existence, metadata and cited contexts supported. |
-| xu2022adaptive | KEEP | Existence, metadata and cited contexts supported. |
-| yang2025swinjscc | KEEP | Existence, metadata and cited contexts supported. |
-| jo2021practical | KEEP | Existence, metadata and cited contexts supported. |
-| krizhevsky2009learning | KEEP | Existence, metadata and cited contexts supported. |
-| yin2026aris | REVIEW_UNAVAILABLE | Pending fresh software-entry review. |
+| bourtsoulatze2019deep | KEEP | Same-entry correction follow-up |
+| yang2023witt | KEEP | Fresh per-entry audit |
+| xu2022adaptive | KEEP | Fresh per-entry audit |
+| yang2025swinjscc | KEEP | Fresh per-entry audit |
+| jo2021practical | KEEP | Fresh per-entry audit |
+| krizhevsky2009learning | KEEP | Fresh per-entry audit |
+| yin2026aris | KEEP | Same-entry correction follow-up |
+| yang2026aris | KEEP | Fresh per-entry audit |
 
-Raw per-entry responses and sources are preserved under `.aris/traces/citation-audit/2026-11-09_run01/`.
-Same-family reviews remain provisional. No unavailable review is counted as a pass.
-The DeepJSCC correction restores Gündüz and the reviewer-preferred compound family name Burth Kurka. Raw publisher BibTeX is preserved separately.
+Original FIX replies and the initial capacity-blocked ledger remain archived. No cross-family acceptance or observed serving variant is claimed.

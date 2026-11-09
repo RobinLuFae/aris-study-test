@@ -27,6 +27,9 @@ try {
     if ($Render) {
         $preview = Join-Path $paper 'preview'
         New-Item -ItemType Directory -Force -Path $preview | Out-Null
+        Get-ChildItem -LiteralPath $preview -Filter 'page-*.png' -File | ForEach-Object {
+            Remove-Item -LiteralPath $_.FullName
+        }
         & pdftoppm -scale-to 1500 -png main.pdf (Join-Path $preview 'page')
         if ($LASTEXITCODE -ne 0) { throw 'PDF rendering failed' }
     }
