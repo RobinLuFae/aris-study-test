@@ -30,7 +30,7 @@ for name in ['CODE_README.md','THIRD_PARTY_NOTICES.md','GPU_ENVIRONMENT.md',
     if (ROOT/name).is_file():files.add(ROOT/name)
 archive=OUT/'witt_snr_gate_course_source_results.zip'
 manifest={'scope':'local code/results/paper; no weights, dataset pixels or environments',
-          'public_url':None,'files':[str(p.relative_to(ROOT)).replace('\\','/') for p in sorted(files)],
+          'public_url':'https://github.com/RobinLuFae/aris-study-test','files':[str(p.relative_to(ROOT)).replace('\\','/') for p in sorted(files)],
           'file_count':len(files),'source_bytes':sum(p.stat().st_size for p in files)}
 with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
     for p in sorted(files):

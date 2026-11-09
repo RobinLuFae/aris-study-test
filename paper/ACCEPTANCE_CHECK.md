@@ -17,6 +17,6 @@ Executor check against the frozen `PAPER_ACCEPTANCE_CONTRACT.md`. This is not a 
 | 11 | Met | Limitations consolidated: finite-budget reproduction, one trajectory/architecture/dataset/channel, unestablished paper parity, no RF/NTN/task-semantic or speed evidence. |
 | 12 | Met by executor | Official CVPR 2026 style, four main-text pages plus references and appendix; complete PDF rendered and visually inspected; no undefined references or overflow warnings. |
 | 13 | Partial | Actual ARIS phases and corrections documented; some older exact prompts unrecovered; no invented student feelings. Final writing-review rounds remain unavailable. |
-| 14 | Pending | Local source/results package prepared; public repository, author details and personal reflection require the user's information. |
+| 14 | Partial | Public code/results repository verified: https://github.com/RobinLuFae/aris-study-test . Author details and student-authored reflection remain pending. |
 
 Overall: **reviewable course draft; final independent post-edit audit and writing review pending**. Neither full submission readiness nor complete course submission is claimed.
