@@ -1,0 +1,101 @@
+{
+  "status": "completed",
+  "source_global_step": 8000,
+  "noise_aggregation": "Mean three MSEs per SNR, then convert to PSNR",
+  "off_anchor_set_relative_to_5_knots": [
+    2,
+    2.25,
+    5,
+    5.25,
+    8,
+    8.25,
+    11,
+    11.25
+  ],
+  "variants": [
+    {
+      "variant": "original",
+      "bytes": 54987481,
+      "reduction_pct": 0.0,
+      "max_off_anchor_psnr_loss_db": 0.0,
+      "mean_off_anchor_psnr_loss_db": 0.0,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 36.17560000020603,
+        "128": 46.26905000077386
+      }
+    },
+    {
+      "variant": "shared_snr",
+      "bytes": 54989849,
+      "reduction_pct": -0.004306434768297507,
+      "max_off_anchor_psnr_loss_db": 8.607233326074493e-08,
+      "mean_off_anchor_psnr_loss_db": -8.032621234832504e-09,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 40.2757499996369,
+        "128": 47.27065000042785
+      }
+    },
+    {
+      "variant": "linear3",
+      "bytes": 38429449,
+      "reduction_pct": 30.112366849465243,
+      "max_off_anchor_psnr_loss_db": 0.080833662621842,
+      "mean_off_anchor_psnr_loss_db": 0.02710052779616845,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 39.76074999991397,
+        "128": 51.45549999906507
+      }
+    },
+    {
+      "variant": "linear5",
+      "bytes": 38472457,
+      "reduction_pct": 30.03415268286249,
+      "max_off_anchor_psnr_loss_db": 0.00907079432956337,
+      "mean_off_anchor_psnr_loss_db": 0.0026015216036552324,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 41.130850000627106,
+        "128": 51.67344999972556
+      }
+    },
+    {
+      "variant": "linear9",
+      "bytes": 38558473,
+      "reduction_pct": 29.877724349656976,
+      "max_off_anchor_psnr_loss_db": 0.00038858131037855514,
+      "mean_off_anchor_psnr_loss_db": 0.00011144042869570825,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 40.28255000048375,
+        "128": 49.00170000109938
+      }
+    },
+    {
+      "variant": "linear13",
+      "bytes": 38644489,
+      "reduction_pct": 29.721296016451447,
+      "max_off_anchor_psnr_loss_db": 0.0002575006229506016,
+      "mean_off_anchor_psnr_loss_db": 2.921258833277207e-05,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 40.391799999270006,
+        "128": 43.69539999970584
+      }
+    },
+    {
+      "variant": "nearest5",
+      "bytes": 38472457,
+      "reduction_pct": 30.03415268286249,
+      "max_off_anchor_psnr_loss_db": 0.1295332587270046,
+      "mean_off_anchor_psnr_loss_db": 0.055870407956699175,
+      "roundtrip_difference": 0.0,
+      "latency_median_ms_by_batch": {
+        "1": 17.877350001072045,
+        "128": 43.40605000106734
+      }
+    }
+  ]
+}

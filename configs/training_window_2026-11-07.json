@@ -1,0 +1,9 @@
+{
+  "approval": "User: 今天你最多可以再训练两个小时; 本机分段训练，保留断点",
+  "recorded_at_utc": "2026-11-07T07:17:02+00:00",
+  "hard_deadline_utc": "2026-11-07T09:17:02+00:00",
+  "hard_deadline_local": "2026-11-07T17:17:02+08:00",
+  "segment_seconds": 1200,
+  "checkpoint_reserve_seconds": 30,
+  "policy": "Conservatively stop today's GPU training by this wall-clock deadline, including gaps; no automatic renewal."
+}

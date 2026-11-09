@@ -1,0 +1,56 @@
+{
+  "checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\checkpoints\\R001_witt_baseline_seed42\\adaptive_best.pt",
+  "split": "validation",
+  "images": 5000,
+  "stage": {
+    "name": "adaptive",
+    "model": "WITT",
+    "steps": 6000,
+    "snrs": [
+      1,
+      4,
+      7,
+      10,
+      13
+    ]
+  },
+  "global_step": 8000,
+  "source": {
+    "url": "https://github.com/KeYang8/WITT",
+    "commit": "2460db52264ad35d0d7521c9f505fc318134c086",
+    "worktree_status": ""
+  },
+  "repeats": [
+    {
+      "repeat": 0,
+      "noise_seed_base": 9917,
+      "metrics": [
+        {
+          "snr_db": 1,
+          "images": 5000,
+          "mse_0_1": 0.0024904974235221743,
+          "psnr_from_mean_mse_db": 26.03713903219163,
+          "mean_image_psnr_db": 26.22890641784668,
+          "cbr": 0.3333333333333333
+        },
+        {
+          "snr_db": 7,
+          "images": 5000,
+          "mse_0_1": 0.0008314006332308054,
+          "psnr_from_mean_mse_db": 30.80189649052152,
+          "mean_image_psnr_db": 31.015169830322264,
+          "cbr": 0.3333333333333333
+        },
+        {
+          "snr_db": 13,
+          "images": 5000,
+          "mse_0_1": 0.0003677029750077054,
+          "psnr_from_mean_mse_db": 34.345028563312916,
+          "mean_image_psnr_db": 34.70346799316406,
+          "cbr": 0.3333333333333333
+        }
+      ]
+    }
+  ],
+  "scope": "Local trained model evaluation; paper-reported numbers are not mixed in."
+}

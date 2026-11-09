@@ -1,0 +1,33 @@
+{
+  "checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\\u4eba\u5de5\u667a\u80fd\u4e0e\u4fe1\u606f\u641c\u7d22\\AIRS\\checkpoints\\R003_witt_baseline_seed42_segment3\\adaptive_best.pt",
+  "global_step": 21500,
+  "selection_mean_mse": 0.0009668555493932219,
+  "eligible_checks": 41,
+  "metrics": [
+    {
+      "snr_db": 1,
+      "images": 5000,
+      "mse_0_1": 0.0019540075577795506,
+      "psnr_from_mean_mse_db": 27.090737608344376,
+      "mean_image_psnr_db": 27.297725732421874,
+      "cbr": 0.3333333333333333
+    },
+    {
+      "snr_db": 7,
+      "images": 5000,
+      "mse_0_1": 0.0006536293714307249,
+      "psnr_from_mean_mse_db": 31.846684406193262,
+      "mean_image_psnr_db": 32.06211477050781,
+      "cbr": 0.3333333333333333
+    },
+    {
+      "snr_db": 13,
+      "images": 5000,
+      "mse_0_1": 0.0002929297189693898,
+      "psnr_from_mean_mse_db": 35.332365650556234,
+      "mean_image_psnr_db": 35.65745262451172,
+      "cbr": 0.3333333333333333
+    }
+  ],
+  "verified_against_all_eligible_history": true
+}

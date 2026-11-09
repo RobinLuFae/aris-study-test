@@ -1,0 +1,9 @@
+{
+  "source": "User instruction 2026-11-09",
+  "window_duration_minutes": 300,
+  "stop_at_used_percent": 90,
+  "check_at": "phase boundaries; more frequently once used >= 75%",
+  "on_threshold": "save work, record handoff, stop",
+  "use_reset_credits": false,
+  "background_monitor": false
+}

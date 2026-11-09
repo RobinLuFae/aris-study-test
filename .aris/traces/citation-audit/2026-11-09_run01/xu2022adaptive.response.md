@@ -1,0 +1,10 @@
+# Citation audit — `xu2022adaptive`
+
+**EXISTENCE YES. VERDICT KEEP.** Both cited statements are supported.
+
+**METADATA correct.** The published article is *Wireless Image Transmission Using Deep Source Channel Coding With Attention Modules* by Jialong Xu, Bo Ai, Wei Chen, Ang Yang, Peng Sun, and Miguel Rodrigues, in that order. IEEE published it in *IEEE Transactions on Circuits and Systems for Video Technology*, volume 32, issue 4, April 2022, pages 2315–2328. The DOI is `10.1109/TCSVT.2021.3082521`. The early online publication date was 21 May 2021, which is consistent with the 2022 issue year. The supplied ISSN 1558-2205 is the electronic ISSN. [IEEE article record](https://ieeexplore.ieee.org/document/9438648/) · [UCL publication record](https://discovery.ucl.ac.uk/id/eprint/10147005/) · [Authors’ arXiv record](https://arxiv.org/abs/2012.00533) · [IEEE title list](https://open.ieee.org/wp-content/uploads/IEEE-Title-List-May-2024.pdf).
+
+1. **Introduction — SUPPORTS.** Section IV-A and Figure 6 show that for a fixed bandwidth ratio, one ADJSCC model trained with SNR sampled over 0–20 dB was tested at multiple SNRs. Sections II and III explain how the encoder and decoder use channel SNR to adapt the learned mapping. [Accepted manuscript](https://discovery.ucl.ac.uk/10147005/1/bare_jrnl.pdf).
+2. **Related Work — SUPPORTS.** Section III, Figure 3, and equations (7)–(10) describe the channel-wise soft attention module. It combines channel SNR with pooled feature statistics to compute weights that rescale feature maps. This directly supports the claim that the method incorporates channel quality into feature processing. [Accepted manuscript](https://discovery.ucl.ac.uk/10147005/1/bare_jrnl.pdf).
+
+**Access and assurance.** IEEE Xplore’s indexed record supplied the publication dates and issue details. Opening the article page directly produced a JavaScript verification challenge. UCL’s repository and the authors’ full accepted manuscript were accessible. Reviewer-model identity was not independently observed, so same-family assurance remains provisional.

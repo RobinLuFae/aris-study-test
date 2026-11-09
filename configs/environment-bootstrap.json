@@ -1,0 +1,13 @@
+{
+  "name": "airs-aris-bootstrap",
+  "python": "3.11",
+  "manager": "conda",
+  "prefix": "./.conda",
+  "channel": "conda-forge",
+  "packages": ["python=3.11", "pip"],
+  "package_cache": "D:/Electronic/Python/Anaconda/pkgs",
+  "environment_variable_changes": false,
+  "global_node_changes": false,
+  "torch_status": "not_installed_pending_user_location",
+  "smoke": ["ARIS Research Wiki init", "manual verified paper ingest", "stats", "query pack rebuild"]
+}

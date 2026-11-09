@@ -1,0 +1,29 @@
+{
+  "run_id": "RSM00_continuous22",
+  "seed": 42,
+  "split_seed": 20261107,
+  "validation_size": 5000,
+  "batch_size": 128,
+  "learning_rate": 0.0001,
+  "C": 32,
+  "channel": "awgn",
+  "validation_snrs": [
+    1,
+    7,
+    13
+  ],
+  "validation_noise_seed": 9917,
+  "validation_every": 500,
+  "device": "cuda:0",
+  "cpu_threads": 4,
+  "stages": [
+    {
+      "name": "pretrain",
+      "model": "WITT_W/O",
+      "steps": 22,
+      "snrs": [
+        7
+      ]
+    }
+  ]
+}

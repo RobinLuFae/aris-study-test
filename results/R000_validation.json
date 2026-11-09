@@ -1,0 +1,52 @@
+{
+  "checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\checkpoints\\R000_witt_sanity_seed42\\pretrain_final.pt",
+  "split": "validation",
+  "images": 5000,
+  "stage": {
+    "name": "pretrain",
+    "model": "WITT_W/O",
+    "steps": 20,
+    "snrs": [
+      7
+    ]
+  },
+  "global_step": 20,
+  "source": {
+    "url": "https://github.com/KeYang8/WITT",
+    "commit": "2460db52264ad35d0d7521c9f505fc318134c086",
+    "worktree_status": ""
+  },
+  "repeats": [
+    {
+      "repeat": 0,
+      "noise_seed_base": 9917,
+      "metrics": [
+        {
+          "snr_db": 1,
+          "images": 5000,
+          "mse_0_1": 0.03696420594155789,
+          "psnr_from_mean_mse_db": 14.322186188024235,
+          "mean_image_psnr_db": 14.788947109985351,
+          "cbr": 0.3333333333333333
+        },
+        {
+          "snr_db": 7,
+          "images": 5000,
+          "mse_0_1": 0.03542224082648754,
+          "psnr_from_mean_mse_db": 14.507239686175437,
+          "mean_image_psnr_db": 15.004366006469727,
+          "cbr": 0.3333333333333333
+        },
+        {
+          "snr_db": 13,
+          "images": 5000,
+          "mse_0_1": 0.03508746659755707,
+          "psnr_from_mean_mse_db": 14.548479877954396,
+          "mean_image_psnr_db": 15.053398449707032,
+          "cbr": 0.3333333333333333
+        }
+      ]
+    }
+  ],
+  "scope": "Local trained model evaluation; paper-reported numbers are not mixed in."
+}

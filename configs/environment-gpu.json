@@ -1,0 +1,18 @@
+{
+  "name": "airs-semantic-gpu",
+  "python": "3.11",
+  "manager": "conda",
+  "prefix": "./.conda",
+  "platform": "win-64",
+  "base": "PyTorch CUDA 12.8 wheels on existing NVIDIA driver",
+  "pip_phases": [
+    ["torch==2.9.1+cu128", "torchvision==0.24.1+cu128", "numpy==1.26.4", "pillow==11.3.0"],
+    ["timm==0.9.16", "huggingface-hub==0.36.0", "matplotlib==3.10.7", "pypdf==6.1.3"]
+  ],
+  "index_url": "https://download.pytorch.org/whl/cu128",
+  "wheel_dir": "./downloads/wheels",
+  "temporary_dir": "./downloads/tmp",
+  "environment_variable_changes": false,
+  "approval": "User confirmed AIRS/.conda and AIRS/downloads on 2026-11-07",
+  "smoke": {"entrypoint": "scripts/gpu_smoke.py", "expect": "GPU_FORWARD_BACKWARD_PASS"}
+}

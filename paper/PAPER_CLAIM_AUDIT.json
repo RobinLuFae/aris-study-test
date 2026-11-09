@@ -1,0 +1,667 @@
+{
+  "audit_skill": "paper-claim-audit",
+  "verdict": "WARN",
+  "reason_code": "wording_fixes_and_provenance_gaps",
+  "summary": "Raw numerical results reconcile; initial headline rounding and pixel-unit wording required correction, and restricted evidence omitted implementation/history provenance.",
+  "audited_input_hashes": {},
+  "trace_path": "D:\\Electronic\\ChatGPT\\Codex\\\u4eba\u5de5\u667a\u80fd\u4e0e\u4fe1\u606f\u641c\u7d22\\AIRS\\.aris\\traces\\paper-claim-audit\\2026-11-09_run01",
+  "thread_id": "/root/paper_claim_audit_20261109",
+  "executor_model": "gpt-6",
+  "executor_family": "openai",
+  "reviewer_model": null,
+  "requested_reviewer_model": "gpt-6-astra",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": null,
+  "requested_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "generated_at": "2026-11-09T04:31:48.678198+00:00",
+  "details": {
+    "total_claim_rows": 79,
+    "counts": {
+      "exact_match": 37,
+      "ambiguous_mapping": 13,
+      "missing_evidence": 8,
+      "rounding_ok": 19,
+      "number_mismatch": 2
+    },
+    "claims": [
+      {
+        "location": "main:6; A:2; I:8",
+        "claim": "\u201cPost-Training SNR-Gate Tabulation\u201d; \u201cpost-training lookup-table deployment\u201d; \u201ca reproducible intervention\u201d",
+        "evidence": "PRE1/PRE2 report CPU post-training transformations with source checkpoints at steps 8,000 and 21,500; P1\u2013P4 measure deployed variants. Reproducibility is substantiated for the reported tables by replay of the raw arithmetic, not an independent full training rerun.",
+        "status": "exact_match"
+      },
+      {
+        "location": "A:2; I:4; M:12,16",
+        "claim": "\u201cFourteen small conditioning networks depend only on scalar SNR\u201d; \u201cseven encoder gates and seven decoder gates each map scalar SNR to a 384-dimensional vector\u201d",
+        "evidence": "W net/encoder.py:193\u2013205,226\u2013237,270\u2013279 and net/decoder.py:102\u2013114,124\u2013132. PRE2.linear13.transformation.modules has encoder indices 0\u20136 and decoder indices 0\u20136. Each has 4,992 gate entries across 13 knots (384 per knot). The image-conditioned sm_list is separate.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:12\u201316; A:2; I:6",
+        "claim": "\u201chidden ReLU activations, and a final sigmoid\u201d; \u201c296,448\u201d; \u201c4,150,272 learned parameters\u201d",
+        "evidence": "W net/encoder.py:193\u2013205, 1\u2192384\u2192384\u2192384 with two ReLUs then sigmoid. Including biases: 768 + 2(147,456 + 384) = 296,448 per gate. 14 \u00d7 296,448 = 4,150,272, matching each PRE2 module and removed_parameter_count.",
+        "status": "exact_match"
+      },
+      {
+        "location": "A:2; M:18\u201323; RW:6",
+        "claim": "\u201c13-node FP32 tables and linear interpolation\u201d; \u201cuniformly spaced knots\u201d; \u201cthe tabulated input is only SNR\u201d [RW has \u201cHere, the tabulated input is only SNR.\u201d]",
+        "evidence": "PRE2 linear13 has anchors=13/interpolation=linear, `results/P002_R003_summary.json` lists every integer 1\u201313 dB. Scalar input confirmed by W. 54,874,048 \u2212 4,150,272\u00d74 + 280,280 = 38,553,240 state bytes, exactly PRE2.linear13.state_tensor_bytes. This corroborates four-byte table values. The displayed two-point equation is ordinary linear interpolation; exact use of this arithmetic in the local wrapper is described by the mode field, not traced instruction-by-instruction.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:23",
+        "claim": "\u201c70,070\u201d; \u201c280,280 raw bytes\u201d; \u201cretained learned-parameter count is 9,564,784\u201d",
+        "evidence": "PRE2.linear13.transformation table_gate_values=69,888, table_knot_values=182. Sum 70,070 \u00d7 4 bytes = 280,280. 13,715,056 \u2212 4,150,272 = 9,564,784.",
+        "status": "exact_match"
+      },
+      {
+        "location": "A:2; RW:3,6; M:23; D:2",
+        "claim": "\u201cretaining the image-dependent computation and channel-use ratio\u201d; \u201cAll image-dependent feature transformations, the Swin backbone, the channel implementation, and CBR remain unchanged. Compilation requires no additional training.\u201d",
+        "evidence": "PRE2 transformation.scope explicitly retains \u201cimage-dependent sm_list and backbone\u201d; every P1\u2013P4 repeat has CBR=1/3. PRE2 transformation uses the selected trained checkpoint, and P2\u2013P4 use the same checkpoint for both methods. Records support the declared intervention and observed CBR. Exact unchanged-tensor evidence is a separate row.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:3\u20137",
+        "claim": "\u201creal-valued latent features\u201d; \u201cpacks into complex symbols\u201d; \u201cindependent real and imaginary Gaussian noise\u201d; \u201cnormalization averages power over the batch\u201d",
+        "evidence": "W net/channel.py:26\u201330,44\u201386: separate Gaussian samples, pwr=2\u00d7mean(x\u00b2) over the tensor, complex packing, sigma=sqrt(1/(2\u00d710^(s/10))), recovery by multiplication by sqrt(pwr). P2\u2013P4 pair batch indices/counts and seeds.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:3,9",
+        "claim": "\u201clatent width\u201d; \u201ctwo encoder stages\u201d; \u201cThe decoder reverses these stages\u201d; \u201cCBR\u201d; \u201c13,715,056 learned parameters\u201d",
+        "evidence": "CFG C=32, AWGN. W train.py:59\u201375 has image_dims=(3,32,32), encoder depths [2,4], embed_dims [128,256], window 2, decoder [4,2]/[256,128], window 2. W net/network.py:60 CBR=feature.numel()/2/input_image.numel(). H and all P1\u2013P4 CBR=0.3333333333333333. PRE2.original.parameter_count=13,715,056.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:9; I:8",
+        "claim": "\u201cimports the author's model and channel components without modifying their source\u201d; \u201cauthor-component reproduction\u201d",
+        "evidence": "P1\u2013P4 source.url is KeYang8/WITT, full commit 2460db52264ad35d0d7521c9f505fc318134c086, worktree_status empty. This supports a clean upstream checkout and reported source association. Actual imports in the local wrapper are outside the allowed evidence.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "M:25; R:3",
+        "claim": "\u201ccomplete serialized inference files, including metadata, buffers, and serialization overhead\u201d; \u201cThese files exclude optimizer state.\u201d",
+        "evidence": "PRE2.original serialized bytes 54,987,545 vs state_tensor_bytes 54,874,048; linear13 38,644,489 vs 38,553,240. F records the same actual complete artifact sizes. This supports file-size comparison and overhead. No manifest of serialization members is present in these records to check optimizer exclusion or exact metadata contents independently.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "M:25",
+        "claim": "\u201c223 retained non-gate tensors are unchanged\u201d",
+        "evidence": "PRE2 reports parameter counts, transformation scope, module counts and state_tensor_bytes; P2\u2013P4 report reload witness differences. There is no retained-tensor equality count or comparison result in the allowed raw JSON. The quoted 223 is unverified here.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "M:25; P:10",
+        "claim": "\u201cmaximum output difference for this same-variant witness is zero\u201d; \u201csuccessful serialization witness\u201d",
+        "evidence": "P1/P2/P3/P4 variants[].fresh_vs_reloaded_max_abs_difference=0.0, including original and linear13. A2/A3/A4.roundtrip_difference=0.0. This is a recorded witness on its inputs, not a zero original-vs-table difference.",
+        "status": "exact_match"
+      },
+      {
+        "location": "A:2; I:6; R:3; D:2",
+        "claim": "\u201c54,987,545 to 38,644,489 bytes\u201d; \u201c29.72%\u201d; \u201c29.7214%\u201d; \u201cFive nodes save a further 172,032 bytes\u201d",
+        "evidence": "PRE2 original=54,987,545, linear13=38,644,489, linear5=38,472,457. Savings 16,343,056 bytes; 100\u00d7(1\u221238,644,489/54,987,545)=29.721377813830385%; 38,644,489\u221238,472,457=172,032. F agrees.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "A:2; I:6; D:2",
+        "claim": "\u201c0.000187 dB\u201d",
+        "evidence": "A4.maximum_signed_grid_loss_db=0.00018648792025736705 at 2.375 dB, independently recovered from raw sums. Nearest at six decimal places is 0.000186; 0.000187 would be a correctly stated upper bound. R:15 is accurately printed to nine decimal places.",
+        "status": "number_mismatch"
+      },
+      {
+        "location": "A:2; I:6; D:2",
+        "claim": "\u201cone locally trained checkpoint\u201d; \u201c10,000 test images, eight predeclared SNRs, and three paired noise realizations\u201d; \u201cFive of those SNRs coincide with table knots; the remaining three exercise interpolation.\u201d",
+        "evidence": "F.test_protocol and P4 record original/linear13, 10,000 unique indices in official order 0\u20269999, eight SNRs, three seeds per SNR paired across methods. Integer knots 1,3,7,12,13; interpolated 1.5,2.375,12.5.",
+        "status": "exact_match"
+      },
+      {
+        "location": "I:8",
+        "claim": "\u201cfractional SNRs on a stronger checkpoint\u201d",
+        "evidence": "H original model's matched selection metric at step 8,000 = 0.001229867010586895 vs SEL at 21,500 = 0.0009668555493932219. P2 includes fractional SNRs. \u201cStronger\u201d is supported on this validation measure.",
+        "status": "exact_match"
+      },
+      {
+        "location": "RW:3,6",
+        "claim": "\u201coriginal WITT components to isolate the storage cost of scalar SNR conditioning at a fixed channel-use ratio\u201d; \u201ctest protocol that checks interpolation rather than only stored knots\u201d",
+        "evidence": "W architecture, PRE2 scope and all P4 CBR fields support the experiment; the three non-knots above appear in F and P4. Literature descriptions cite external articles in the manuscript; those papers are not primary experimental claims and are outside the permitted source packet.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201c50,000 training and 10,000 test images\u201d; \u201cseed 20261107 partitions the training images into 45,000 training and 5,000 validation examples\u201d",
+        "evidence": "CFG.split_seed=20261107, validation_size=5000. P3 has 5,000 unique validation indices from the 50,000-index pool. The torch randperm(50,000, seed=20261107) prefix has exactly this 5,000-member set. P1/P2 use the first 1,000 of P3. The complement has 45,000 members. P4 has every index 0\u20269999 in order. The presence of each training image in the sampler is not recorded as a full training index ledger.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:3; M:3; P:15",
+        "claim": "\u201cInputs are scaled to\u201d; \u201cwe clip reconstructed pixels\u201d",
+        "evidence": "W original model assumes 3\u00d732\u00d732, and H/P1\u2013P4 record mse_0_1. Input values, clipped reconstructions and the local evaluator operations are not contained in the allowed JSON, so the exact implementation of scaling/clipping is not independently visible.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cAdam with learning rate\u201d; \u201cbatch size 128, and one training seed, 42\u201d",
+        "evidence": "CFG learning_rate=0.0001, batch_size=128, seed=42 for the three baseline segments. P1\u2013P4 are checkpoints from this single baseline trajectory; RSM diagnostics are separate checks. Optimizer type is not named in the admitted CFG/metrics.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201c2,000 updates\u201d; \u201cnon-adaptive variant at 7 dB\u201d; \u201cadaptive model with uniformly sampled SNRs\u201d",
+        "evidence": "CFG stage 1 WITT_W/O, 2,000 steps, [7]; adaptive WITT, [1,4,7,10,13]. H shows adaptive evaluations beginning at total step 2,500. H sampled train records support this SNR support; discrete-uniform sampling law is not specified by the config list.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cAdam is reset at this stage boundary.\u201d",
+        "evidence": "CFG and H document the stages but no optimizer reset event, state or optimizer field.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cTraining segments preserve optimizer, sampler, and random-number-generator states.\u201d",
+        "evidence": "`runs/RSM00_continuous22/metrics.jsonl` and `runs/RSM01_resumed22/metrics.jsonl` agree exactly on all three 22-step validation MSEs, mean 0.03420896594822407. H is continuous across segment check ranges. These support a functional resume check, not a component-by-component provenance record for the three listed states.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cEvery 500 updates\u201d; \u201cat 1, 7, and 13 dB\u201d; \u201carithmetic mean of the three MSEs\u201d; \u201c41 eligible evaluations\u201d; \u201c21,500 total updates\u201d",
+        "evidence": "H has 12+14+15 scheduled adaptive eligible checks from 2,500 to 22,500 by 500; all arithmetic means match. Unique minimum is SEL's 0.0009668555493932219 at 21,500. Its three MSEs are 0.0019540075577795506, 0.0006536293714307249 and 0.0002929297189693898.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cretaining the earlier checkpoint on ties\u201d",
+        "evidence": "The 41 mean MSEs are distinct. None exercises tie handling, and the tie rule is not in CFG/SEL. It does not affect the selected checkpoint.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cpauses at update 22,645\u201d; \u201ca validation performed only because of a cutoff is excluded\u201d; \u201cAll current deployment variants use the selected checkpoint.\u201d",
+        "evidence": "H marks the nonperiodic steps 15,300 and 22,645 ineligible. H ends at 22,645. PRE2/P2/P3/P4/F use R003/adaptive_best.pt at 21,500. The selection contains no cutoff-only row.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cFP32, PyTorch 2.9.1 with CUDA 12.8, and an RTX 5070 Laptop GPU\u201d",
+        "evidence": "P2\u2013P4 explicitly record torch=2.9.1+cu128, cuda_runtime=12.8, gpu=NVIDIA GeForce RTX 5070 Laptop GPU. PRE2 state sizes corroborate four-byte values. Exact arithmetic precision behavior throughout training and every GPU operation is not logged in these records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:8; R:32,37",
+        "claim": "\u201c8,000-update checkpoint, 1,000 validation images, 13 fixed SNRs, and three paired channel-noise realizations\u201d; \u201c3-, 5-, 9-, and 13-node linear tables, a 5-node nearest-neighbor table\u201d",
+        "evidence": "P1.step=8000; 1,000 indices, split validation/test_partition_used=false, 13 distinct SNRs [1,2,2.25,4,5,5.25,7,8,8.25,10,11,11.25,13], repeat=0,1,2 at each. Seven variants including original and shared_snr. PRE1 and P1 agree.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:8; R:32",
+        "claim": "\u201ccomputes each original SNR MLP once per batch and broadcasts its output\u201d; \u201cpreserves the original MLP parameters\u201d",
+        "evidence": "PRE1/P1 original and shared_snr both 13,715,056 parameters; across the full grid the shared control's largest absolute loss is 1.280619805754668e\u22127 dB. The shared_snr variant and observed agreement support the control; exact call count/broadcast and tensor equality have no implementation witness in these records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:8; A:2",
+        "claim": "\u201cThe primary 13-node design is fixed after reviewing this pilot.\u201d",
+        "evidence": "P1 has all candidate variants; P2 has original/5/13 and A2 designates linear13; P3/F use only original and linear13. This supports a pre-test choice. P1/P2 do not preserve a dated decision immediately following the pilot or its rationale.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:10; R:6,10",
+        "claim": "\u201c1,000 validation images at 32 SNRs\u201d; \u201cevery half-decibel point from 1 to 13 dB and seven additional fractional stress points\u201d; \u201call 5,000 validation images \u2026 at the eight SNRs subsequently used for testing\u201d",
+        "evidence": "P2 has the 25 half-dB knots plus [1.75,2.25,2.375,3.375,5.25,8.25,11.25]; variants original,linear5,linear13. P3 has 5,000 unique validation indices and F/P4 grid; original,linear13 only. Three paired noise repeats everywhere.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:10,12; R:6",
+        "claim": "\u201cat most 0.1 dB, at least 25% reduction in serialized bytes, and a successful serialization witness\u201d; \u201cBoth validations pass\u201d; \u201cBoth pass the predeclared tolerance.\u201d",
+        "evidence": "A2/A3 and F document tolerance=0.1, min storage reduction=0.25, roundtrip_difference=0, passed=true; P2 linear5 also passes these numerical tests. F embeds exactly A2 and A3. The allowed *pre-P2* protocols list grid/variants but omit the thresholds; declaration in advance of P2 cannot be dated here. Thresholds are documented before P4.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:12; X:6",
+        "claim": "\u201cBoth validations pass before the checkpoint, deployment files, and P004 test protocol are frozen\u201d; \u201cThe test-freeze record precedes testing.\u201d",
+        "evidence": "F.created_at_utc=2026-11-08T02:28:10.584255+00:00 embeds passing A2/A3 and names both files, sizes, checkpoint and full grid. F equals the P4 run's archived freeze. Last writes UTC: A2 02:25:28, A3 02:28:08, F 02:28:10, archived F 02:28:14, completed P4 02:31:24. P4 explicitly names F and matches it. Supports recorded chronology for the documented test.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:12",
+        "claim": "\u201cValidation uses noise seed base 51001 and testing uses 91001\u201d; \u201cthree new paired noise realizations\u201d",
+        "evidence": "Deployment validations P1\u2013P3 use seeds consistent with 51001 + 100000r + round(1000s); test config/F specify 91001 and P4 seeds follow the analogous formula. P2's 96 and P3's 24 seeds have zero overlap with P4's 24. E.g., at 1 dB deployment validation 52001/152001/252001; test 92001/192001/292001. Training-time validation uses another base, 9917 (CFG and R001_validation.json). Qualify \u201cValidation\u201d as deployment validation if readers may include training checks.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:12",
+        "claim": "\u201cTesting makes no further selection of knots or model parameters.\u201d",
+        "evidence": "F.test_protocol.variants=[original,linear13], preparation=P002; completed P4 has the same two variants, checkpoint and protocol, exactly one frozen table geometry. Matches the reported archived evaluation.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:12; X:11",
+        "claim": "\u201cserialization witness uses a deterministic synthetic ramp\u201d; \u201cverification of actual deployment sizes and checkpoint identity before opening test images\u201d",
+        "evidence": "P4 has zero same-variant difference, the F path, matching bytes and checkpoint/step. Neither P4 nor F describes the witness input or records executable ordering of checks versus first dataset access. Actual provenance for the ramp and ordering is absent from the permitted records.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:15",
+        "claim": "\u201c3,072 pixels of image\u201d",
+        "evidence": "W image_dims=(3,32,32) and M:3 specify 1,024 RGB pixels, or 3,072 scalar channel values per image. The count used as an MSE scalar denominator is appropriate; the unit \u201cpixels\u201d is incorrect.",
+        "status": "number_mismatch"
+      },
+      {
+        "location": "P:15\u201319; R:22",
+        "claim": "\u201cPSNR from pooled MSE\u201d; \u201cSigned loss\u201d; \u201ca negative value denotes a small improvement\u201d",
+        "evidence": "For each SNR pool three repeats then compute \u221210 log10(pooled MSE). A2\u2013A4 cell PSNRs/losses match calculations from all saved sums; P1 equal-sized repeats give the same pooling. Positive loss=original PSNR\u2212table PSNR, negative means higher table PSNR.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:21; R:27",
+        "claim": "\u201c2,000 paired bootstrap draws\u201d; \u201ccorrectly weighting the shorter last batch\u201d; \u201c40 batch clusters (last batch: 8 images)\u201d; \u201c79 (last batch: 16)\u201d",
+        "evidence": "A2\u2013A4.bootstrap plus full interval replay above. P3 has 39\u00d7128+8=5,000, P4 78\u00d7128+16=10,000; P2 7\u00d7128+104=1,000. Intervals are 2.5/97.5 percentiles conditional on observed batches, noises, checkpoint, and are pointwise 95%.",
+        "status": "exact_match"
+      },
+      {
+        "location": "P:21",
+        "claim": "\u201cFor each SNR, 2,000 paired bootstrap draws\u201d",
+        "evidence": "Confirmed at every P2\u2013P4 SNR. P1 has no batch data or reported cluster intervals. If this sentence is intended to cover every experiment including P1, its scope is too broad; identify P2\u2013P4 explicitly.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:21; D:5",
+        "claim": "\u201cthree noise realizations are repetitions of the channel simulation\u201d; \u201cone training trajectory\u201d",
+        "evidence": "P1\u2013P4 repeat identifiers 0\u20132 and distinct noise seeds at shared checkpoint, CFG seed=42 across R001\u2013R003. The repeats do not support training-seed variability.",
+        "status": "exact_match"
+      },
+      {
+        "location": "M:30",
+        "claim": "\u201cCurrent checkpoint (21,500 updates): complete inference-file sizes and learned-parameter counts\u201d; \u201cTable buffers are additional stored values\u201d",
+        "evidence": "SEL / PRE2 counts and bytes are reproduced in the storage table below. PRE2 distinguishes learnable parameter count from table gate/knot buffer values.",
+        "status": "exact_match"
+      },
+      {
+        "location": "R:6",
+        "claim": "\u201c0.000454 dB at 2.25 dB\u201d; \u201c0.015405 dB at 2.5 dB\u201d; \u201c0.000264 dB at 2.375 dB\u201d",
+        "evidence": "P2 pooled maximum signed losses: linear13 0.00045356161741924784 at 2.25 (A2), linear5 0.015405200032095223 at 2.5. P3 linear13 0.00026418200531005834 at 2.375 (A3). Each quote is correctly rounded. These maxima are signed, not absolute.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "R:6",
+        "claim": "\u201c13-node choice offers the smaller observed loss for a modest file-size increase.\u201d",
+        "evidence": "P2 maximum differences above; 13 knots cost 172,032 bytes more than 5, or 0.313% of the original file. The comparison is a worst observed grid loss, not a claim about every grid point.",
+        "status": "exact_match"
+      },
+      {
+        "location": "R:10",
+        "claim": "\u201coriginal PSNR minus table PSNR at 32 fixed SNRs\u201d; \u201cFive-node knots are 1, 4, 7, 10, and 13 dB; 13-node knots are every integer from 1 to 13 dB\u201d; \u201cBoth variants use checkpoint 21,500.\u201d",
+        "evidence": "`results/P002_R003_summary.json` variant knots, PRE2/P2 canonical checkpoint and 1,000 images, 3 repeats per grid point match. Five-node has 27 non-knots; 13-node has 19 non-knots. Open markers and line style are captioned conventions, plotted PDF outside packet.",
+        "status": "exact_match"
+      },
+      {
+        "location": "R:15",
+        "claim": "\u201cmaximum signed decrease is 0.000186488 dB at 2.375 dB\u201d; \u201c[-0.0000406,0.0004124]\u201d; \u201cmaximum absolute change is 0.000337846 dB at 1.5 dB\u201d",
+        "evidence": "A4 2.375 cell: +0.00018648792025736705 dB, [\u22120.000040577287564584, +0.00041244750636194633] dB. At 1.5: \u22120.0003378461331543206 dB. Over eight cells these are signed and absolute maxima, respectively.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "R:17",
+        "claim": "\u201cFive test conditions are integer-dB table knots and show differences below\u201d; \u201c1.5, 2.375, and 12.5 dB, exercise interpolation\u201d; \u201cBoth positive and negative differences occur\u201d",
+        "evidence": "A4 integer-knot absolute maximum 2.7864830957367536e\u22128 dB at 7 < 3\u00d710\u207b\u2078 dB. At fractional 1.5/2.375/12.5 signs \u2212/+/\u2212. Cap applies to knots only. Exact values below.",
+        "status": "exact_match"
+      },
+      {
+        "location": "R:17,22,27",
+        "claim": "\u201cmillidecibels\u201d; \u201cIntervals are conditional, pointwise, and descriptive\u201d; \u201c79 batch clusters\u201d; \u201cSquares mark table knots; circles mark interpolation\u201d; \u201cPositive loss means lower PSNR for the table.\u201d",
+        "evidence": "1 mdB = 10\u207b\u00b3 dB. T-test uses \u00d71,000 for losses/intervals, verified below. P4 and A4 support three noises, 10,000 images, 79 clusters, 2,000 bootstrap samples and stated interpretations. Marker categories agree with F grid; rendering is outside the specified corpus.",
+        "status": "exact_match"
+      },
+      {
+        "location": "R:32,37; A:2; D:2",
+        "claim": "\u201cLinear interpolation with three knots has maximum loss 0.093756 dB\u201d; \u201cnearest-neighbor lookup with five knots has larger loss, 0.129533 dB\u201d; \u201clookup resolution and interpolation rule both matter\u201d",
+        "evidence": "P1 3-linear 0.09375632591355298 at 4 vs 5-nearest 0.1295332587270046 at 2.25. At fixed 5 nodes, linear=0.00907079432956337 vs nearest=0.1295332587270046; within linear variants the observed maxima drop with density. Same historical step/grid; rougher nearest fails 0.1-dB tolerance.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "R:32,37",
+        "claim": "\u201cretains all pilot variants on their original 8,000-update checkpoint and 13-point validation grid\u201d; \u201cMaximum signed loss is taken over the full recorded grid.\u201d",
+        "evidence": "All 7 P1 variants appear below. The three-node's maximum occurs *at 4 dB*, which is absent from an earlier subset defined relative to five knots. Full 13-SNR replay restores this maximum. P1 and P4 refer to different checkpoints and splits.",
+        "status": "exact_match"
+      },
+      {
+        "location": "D:5",
+        "claim": "\u201cone architecture, one training trajectory, CIFAR-10 images, simulated AWGN, and CBR\u201d; \u201cnumerical parity with the published WITT results and convergence remain unestablished\u201d; \u201cThe two checkpoints share one training trajectory.\u201d",
+        "evidence": "CFG.C=32, channel=awgn, seed=42; H shows successive scheduled evaluations; P1 uses step 8,000, P2\u2013P4 use step 21,500. CBR=1/3. There are no measured claims of parity, convergence, continuous-SNR performance, independent-training generalization, real radio/satellite metrics or downstream semantics. The finite-budget/holdout setup is clear; the original author's *training protocol* is not part of this allowed comparison.",
+        "status": "exact_match"
+      },
+      {
+        "location": "D:5",
+        "claim": "\u201cimplementation clamps outside this range, and domain-exterior behavior is untested\u201d",
+        "evidence": "PRE2 and the P2 summary specify knots 1\u201313. All P1\u2013P4 measured SNRs lie within that interval. Clamping is an implementation detail not encoded in either the preparation or evaluation JSON; the untested-domain limit is supported.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "D:5",
+        "claim": "\u201cEight test points and conditional intervals support pointwise conclusions\u201d; \u201cFixed-order pilot timings vary and provide no established latency advantage.\u201d",
+        "evidence": "F/P4 have eight points and A4 defines pointwise conditional scope. P1.latency at batch sizes 1/128: original medians 36.1756000/46.2690500 ms vs linear13 40.3918000/43.6954000 ms. Different directions support caution. P1 archives a single variant order and samples, not an execution-time trace establishing the order of every timing call.",
+        "status": "exact_match"
+      },
+      {
+        "location": "X:3",
+        "claim": "\u201cpinned to commit\u201d; \u201cOur wrapper records the full commit and original source status with each deployment.\u201d",
+        "evidence": "P1\u2013P4 top-level source.url/commit/worktree_status are https://github.com/KeYang8/WITT / 2460db52264ad35d0d7521c9f505fc318134c086 / empty string. PRE1/PRE2 individual variant rows do not include a per-deployment embedded commit/status manifest. The run-level association is recorded.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "X:3",
+        "claim": "\u201ctraining, compilation, evaluation, and analysis entry points\u201d; \u201cPlot-generation scripts read saved JSON results and require no model inference\u201d; \u201clocal package contains \u2026 a reproduction guide\u201d; \u201cPublic hosting and author details remain pending\u201d",
+        "evidence": "P2\u2013P4.argv directly name scripts/evaluate_gate_tables_paired.py. A2\u2013A4 results and mathematical replay show no inference is necessary to compute plotted data. Exact other script paths, plot script execution, package inventory, hosting/author status and guide contents are not in the allowed empirical records; main.tex does say \u201cAnonymous course-project author.\u201d",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:6",
+        "claim": "\u201cselected checkpoint is identified by\u201d; \u201cpreparation record supplies parameter counts and complete file sizes\u201d; \u201cP004 retains per-method, per-noise, per-batch error sums and counts\u201d",
+        "evidence": "SEL and PRE2 entries above, P4.variants[].repeats[].metrics[].batches[] stores position,images,mse_sum,image_psnr_sum at all SNRs; P2 and P3 have the corresponding validation ledgers.",
+        "status": "exact_match"
+      },
+      {
+        "location": "X:6",
+        "claim": "\u201cSource snapshots accompanying each run preserve the evaluator and protocol. Original dataset pixels are separate from these source snapshots.\u201d",
+        "evidence": "P2\u2013P4 contain execution_source, and their run source/protocol.json contents match. No P1 execution_source or protocol snapshot is identified in P1. Contents of evaluator scripts/source directories and bundled dataset pixels lie outside the permitted evidence. The three named later runs support a narrower claim; \u201ceach run\u201d is broader than the observed records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "X:9",
+        "claim": "\u201cproject follows the ARIS skill-based research workflow\u201d; \u201cCodex as the executing AI\u201d; \u201cuser correction led to explicit main-pipeline tracking\u201d; \u201cReviewer identities and raw replies are recorded\u201d; \u201csame model family as the executor\u201d",
+        "evidence": "None of PRE1/PRE2/P1\u2013P4, CFG, F or H records the executor, review dispatch/replies, user correction, main-pipeline tracking, family identity or exact subflow chronology. The review prompt itself labels this review provisional; that does not verify historical reviewers' serving identities.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:11",
+        "claim": "\u201ccorrected the three-node pilot's full-grid worst loss from a narrower-subset value to 0.093756 dB\u201d",
+        "evidence": "`results/P001_pilot_summary.json`.linear3.max_off_anchor_psnr_loss_db=0.080833662621842 on eight SNRs defined relative to 5 knots. `results/P001_pilot_summary_v2.json`.linear3.worst_grid_loss_db=0.09375632591355298 on all 13; P1 confirms. Actual arithmetic/scope correction is verified.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "X:11",
+        "claim": "\u201cOne critical review corrected\u201d; \u201cidentified missing fractional SNR conditions\u201d; \u201cCode review then required\u201d; \u201cBoth fixes preceded P004\u201d; \u201cone review session serving several checklists\u201d; \u201cStudent-authored reflections and publication decisions are recorded separately\u201d",
+        "evidence": "P2 adds fractional conditions to P1's grid before F/P4; F records checkpoint, bytes and thresholds. The causal review attribution, exact timing of both implementation changes, number/nature of review sessions, student reflections and publication records are outside the permitted records. None is inferred from improved scientific measurements.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:11; main:1\u20135",
+        "claim": "\u201cCVPR-formatted course study\u201d",
+        "evidence": "main.tex uses two-column article, cvpr package, CVPR conference macro; cover author is anonymous. No claim of CVPR submission, acceptance or publication appears.",
+        "status": "exact_match"
+      },
+      {
+        "location": "T-storage:5",
+        "claim": "`Original & 13,715,056 & 54,987,545`",
+        "evidence": "PRE2.original.parameter_count = 13,715,056; serialized_bytes = 54,987,545.",
+        "status": "exact_match"
+      },
+      {
+        "location": "T-storage:6",
+        "claim": "`Linear, 5 knots & 9,564,784 & 38,472,457`",
+        "evidence": "PRE2.linear5.parameter_count = 9,564,784; serialized_bytes = 38,472,457.",
+        "status": "exact_match"
+      },
+      {
+        "location": "T-storage:7",
+        "claim": "`Linear, 13 knots & 9,564,784 & 38,644,489`",
+        "evidence": "PRE2.linear13.parameter_count = 9,564,784; serialized_bytes = 38,644,489.",
+        "status": "exact_match"
+      },
+      {
+        "location": "T-pilot:5",
+        "claim": "`Original & 54,987,481 & 0.000000`",
+        "evidence": "P1.original.serialized_bytes = 54,987,481; recalculated full-grid maximum = 0.0 dB at 1 dB.",
+        "status": "exact_match"
+      },
+      {
+        "location": "T-pilot:6",
+        "claim": "`Shared-SNR MLP & 54,989,849 & 0.000000`",
+        "evidence": "P1.shared_snr.serialized_bytes = 54,989,849; recalculated full-grid maximum = 8.607233326074493e-08 dB at 11.25 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-pilot:7",
+        "claim": "`Linear, 3 knots & 38,429,449 & 0.093756`",
+        "evidence": "P1.linear3.serialized_bytes = 38,429,449; recalculated full-grid maximum = 0.09375632591355298 dB at 4 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-pilot:8",
+        "claim": "`Linear, 5 knots & 38,472,457 & 0.009071`",
+        "evidence": "P1.linear5.serialized_bytes = 38,472,457; recalculated full-grid maximum = 0.00907079432956337 dB at 2.25 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-pilot:9",
+        "claim": "`Linear, 9 knots & 38,558,473 & 0.000389`",
+        "evidence": "P1.linear9.serialized_bytes = 38,558,473; recalculated full-grid maximum = 0.00038858131037855514 dB at 2.25 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-pilot:10",
+        "claim": "`Linear, 13 knots & 38,644,489 & 0.000258`",
+        "evidence": "P1.linear13.serialized_bytes = 38,644,489; recalculated full-grid maximum = 0.0002575006229506016 dB at 2.25 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-pilot:11",
+        "claim": "`Nearest, 5 knots & 38,472,457 & 0.129533`",
+        "evidence": "P1.nearest5.serialized_bytes = 38,472,457; recalculated full-grid maximum = 0.1295332587270046 dB at 2.25 dB.",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:7",
+        "claim": "`1 & 27.09260 & 27.09260 & 0.000 & [0.000, 0.000]`",
+        "evidence": "A4.cells[snr_db=1]: 27.092596656891217, 27.092596659376213, -2.4849937714939756e-09, [-5.034116421288013e-08, 4.87066251326577e-08].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:8",
+        "claim": "`1.5 & 27.53395 & 27.53429 & -0.338 & [-0.479, -0.188]`",
+        "evidence": "A4.cells[snr_db=1.5]: 27.533947831444237, 27.53428567757739, -0.0003378461331543206, [-0.0004791470351969024, -0.00018817892999812454].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:9",
+        "claim": "`2.375 & 28.27304 & 28.27285 & +0.186 & [-0.041, 0.412]`",
+        "evidence": "A4.cells[snr_db=2.375]: 28.273037789054925, 28.27285130113467, 0.00018648792025736705, [-4.0577287564584e-05, 0.00041244750636194633].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:10",
+        "claim": "`3 & 28.78591 & 28.78591 & 0.000 & [0.000, 0.000]`",
+        "evidence": "A4.cells[snr_db=3]: 28.78590918650163, 28.785909187928823, -1.427191150148837e-09, [-4.23012745102258e-08, 3.9816743276308116e-08].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:11",
+        "claim": "`7 & 31.84959 & 31.84959 & 0.000 & [0.000, 0.000]`",
+        "evidence": "A4.cells[snr_db=7]: 31.849594617199813, 31.84959464506465, -2.7864830957367536e-08, [-7.713570118425804e-08, 2.531587742559129e-08].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:12",
+        "claim": "`12 & 34.87276 & 34.87276 & 0.000 & [0.000, 0.000]`",
+        "evidence": "A4.cells[snr_db=12]: 34.87275847914758, 34.872758452235175, 2.6912397815172988e-08, [-8.191072919035951e-09, 6.399905101835945e-08].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:13",
+        "claim": "`12.5 & 35.11328 & 35.11354 & -0.258 & [-0.269, -0.246]`",
+        "evidence": "A4.cells[snr_db=12.5]: 35.11328147259263, 35.113538997105564, -0.00025752451293278384, [-0.0002694799423190221, -0.00024618018364580226].",
+        "status": "rounding_ok"
+      },
+      {
+        "location": "T-test:14",
+        "claim": "`13 & 35.33646 & 35.33646 & 0.000 & [0.000, 0.000]`",
+        "evidence": "A4.cells[snr_db=13]: 35.33646239238078, 35.336462394453896, -2.0731078129449235e-09, [-3.578807402700121e-08, 3.3184773009668285e-08].",
+        "status": "rounding_ok"
+      }
+    ],
+    "mismatches": [
+      {
+        "location": "M:9; I:8",
+        "claim": "\u201cimports the author's model and channel components without modifying their source\u201d; \u201cauthor-component reproduction\u201d",
+        "evidence": "P1\u2013P4 source.url is KeYang8/WITT, full commit 2460db52264ad35d0d7521c9f505fc318134c086, worktree_status empty. This supports a clean upstream checkout and reported source association. Actual imports in the local wrapper are outside the allowed evidence.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "M:25; R:3",
+        "claim": "\u201ccomplete serialized inference files, including metadata, buffers, and serialization overhead\u201d; \u201cThese files exclude optimizer state.\u201d",
+        "evidence": "PRE2.original serialized bytes 54,987,545 vs state_tensor_bytes 54,874,048; linear13 38,644,489 vs 38,553,240. F records the same actual complete artifact sizes. This supports file-size comparison and overhead. No manifest of serialization members is present in these records to check optimizer exclusion or exact metadata contents independently.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "M:25",
+        "claim": "\u201c223 retained non-gate tensors are unchanged\u201d",
+        "evidence": "PRE2 reports parameter counts, transformation scope, module counts and state_tensor_bytes; P2\u2013P4 report reload witness differences. There is no retained-tensor equality count or comparison result in the allowed raw JSON. The quoted 223 is unverified here.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "A:2; I:6; D:2",
+        "claim": "\u201c0.000187 dB\u201d",
+        "evidence": "A4.maximum_signed_grid_loss_db=0.00018648792025736705 at 2.375 dB, independently recovered from raw sums. Nearest at six decimal places is 0.000186; 0.000187 would be a correctly stated upper bound. R:15 is accurately printed to nine decimal places.",
+        "status": "number_mismatch"
+      },
+      {
+        "location": "P:3; M:3; P:15",
+        "claim": "\u201cInputs are scaled to\u201d; \u201cwe clip reconstructed pixels\u201d",
+        "evidence": "W original model assumes 3\u00d732\u00d732, and H/P1\u2013P4 record mse_0_1. Input values, clipped reconstructions and the local evaluator operations are not contained in the allowed JSON, so the exact implementation of scaling/clipping is not independently visible.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cAdam with learning rate\u201d; \u201cbatch size 128, and one training seed, 42\u201d",
+        "evidence": "CFG learning_rate=0.0001, batch_size=128, seed=42 for the three baseline segments. P1\u2013P4 are checkpoints from this single baseline trajectory; RSM diagnostics are separate checks. Optimizer type is not named in the admitted CFG/metrics.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201c2,000 updates\u201d; \u201cnon-adaptive variant at 7 dB\u201d; \u201cadaptive model with uniformly sampled SNRs\u201d",
+        "evidence": "CFG stage 1 WITT_W/O, 2,000 steps, [7]; adaptive WITT, [1,4,7,10,13]. H shows adaptive evaluations beginning at total step 2,500. H sampled train records support this SNR support; discrete-uniform sampling law is not specified by the config list.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cAdam is reset at this stage boundary.\u201d",
+        "evidence": "CFG and H document the stages but no optimizer reset event, state or optimizer field.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:3",
+        "claim": "\u201cTraining segments preserve optimizer, sampler, and random-number-generator states.\u201d",
+        "evidence": "`runs/RSM00_continuous22/metrics.jsonl` and `runs/RSM01_resumed22/metrics.jsonl` agree exactly on all three 22-step validation MSEs, mean 0.03420896594822407. H is continuous across segment check ranges. These support a functional resume check, not a component-by-component provenance record for the three listed states.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cretaining the earlier checkpoint on ties\u201d",
+        "evidence": "The 41 mean MSEs are distinct. None exercises tie handling, and the tie rule is not in CFG/SEL. It does not affect the selected checkpoint.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:5",
+        "claim": "\u201cFP32, PyTorch 2.9.1 with CUDA 12.8, and an RTX 5070 Laptop GPU\u201d",
+        "evidence": "P2\u2013P4 explicitly record torch=2.9.1+cu128, cuda_runtime=12.8, gpu=NVIDIA GeForce RTX 5070 Laptop GPU. PRE2 state sizes corroborate four-byte values. Exact arithmetic precision behavior throughout training and every GPU operation is not logged in these records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:8; R:32",
+        "claim": "\u201ccomputes each original SNR MLP once per batch and broadcasts its output\u201d; \u201cpreserves the original MLP parameters\u201d",
+        "evidence": "PRE1/P1 original and shared_snr both 13,715,056 parameters; across the full grid the shared control's largest absolute loss is 1.280619805754668e\u22127 dB. The shared_snr variant and observed agreement support the control; exact call count/broadcast and tensor equality have no implementation witness in these records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:8; A:2",
+        "claim": "\u201cThe primary 13-node design is fixed after reviewing this pilot.\u201d",
+        "evidence": "P1 has all candidate variants; P2 has original/5/13 and A2 designates linear13; P3/F use only original and linear13. This supports a pre-test choice. P1/P2 do not preserve a dated decision immediately following the pilot or its rationale.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:10,12; R:6",
+        "claim": "\u201cat most 0.1 dB, at least 25% reduction in serialized bytes, and a successful serialization witness\u201d; \u201cBoth validations pass\u201d; \u201cBoth pass the predeclared tolerance.\u201d",
+        "evidence": "A2/A3 and F document tolerance=0.1, min storage reduction=0.25, roundtrip_difference=0, passed=true; P2 linear5 also passes these numerical tests. F embeds exactly A2 and A3. The allowed *pre-P2* protocols list grid/variants but omit the thresholds; declaration in advance of P2 cannot be dated here. Thresholds are documented before P4.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "P:12; X:11",
+        "claim": "\u201cserialization witness uses a deterministic synthetic ramp\u201d; \u201cverification of actual deployment sizes and checkpoint identity before opening test images\u201d",
+        "evidence": "P4 has zero same-variant difference, the F path, matching bytes and checkpoint/step. Neither P4 nor F describes the witness input or records executable ordering of checks versus first dataset access. Actual provenance for the ramp and ordering is absent from the permitted records.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "P:15",
+        "claim": "\u201c3,072 pixels of image\u201d",
+        "evidence": "W image_dims=(3,32,32) and M:3 specify 1,024 RGB pixels, or 3,072 scalar channel values per image. The count used as an MSE scalar denominator is appropriate; the unit \u201cpixels\u201d is incorrect.",
+        "status": "number_mismatch"
+      },
+      {
+        "location": "P:21",
+        "claim": "\u201cFor each SNR, 2,000 paired bootstrap draws\u201d",
+        "evidence": "Confirmed at every P2\u2013P4 SNR. P1 has no batch data or reported cluster intervals. If this sentence is intended to cover every experiment including P1, its scope is too broad; identify P2\u2013P4 explicitly.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "D:5",
+        "claim": "\u201cimplementation clamps outside this range, and domain-exterior behavior is untested\u201d",
+        "evidence": "PRE2 and the P2 summary specify knots 1\u201313. All P1\u2013P4 measured SNRs lie within that interval. Clamping is an implementation detail not encoded in either the preparation or evaluation JSON; the untested-domain limit is supported.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:3",
+        "claim": "\u201cpinned to commit\u201d; \u201cOur wrapper records the full commit and original source status with each deployment.\u201d",
+        "evidence": "P1\u2013P4 top-level source.url/commit/worktree_status are https://github.com/KeYang8/WITT / 2460db52264ad35d0d7521c9f505fc318134c086 / empty string. PRE1/PRE2 individual variant rows do not include a per-deployment embedded commit/status manifest. The run-level association is recorded.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "X:3",
+        "claim": "\u201ctraining, compilation, evaluation, and analysis entry points\u201d; \u201cPlot-generation scripts read saved JSON results and require no model inference\u201d; \u201clocal package contains \u2026 a reproduction guide\u201d; \u201cPublic hosting and author details remain pending\u201d",
+        "evidence": "P2\u2013P4.argv directly name scripts/evaluate_gate_tables_paired.py. A2\u2013A4 results and mathematical replay show no inference is necessary to compute plotted data. Exact other script paths, plot script execution, package inventory, hosting/author status and guide contents are not in the allowed empirical records; main.tex does say \u201cAnonymous course-project author.\u201d",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:6",
+        "claim": "\u201cSource snapshots accompanying each run preserve the evaluator and protocol. Original dataset pixels are separate from these source snapshots.\u201d",
+        "evidence": "P2\u2013P4 contain execution_source, and their run source/protocol.json contents match. No P1 execution_source or protocol snapshot is identified in P1. Contents of evaluator scripts/source directories and bundled dataset pixels lie outside the permitted evidence. The three named later runs support a narrower claim; \u201ceach run\u201d is broader than the observed records.",
+        "status": "ambiguous_mapping"
+      },
+      {
+        "location": "X:9",
+        "claim": "\u201cproject follows the ARIS skill-based research workflow\u201d; \u201cCodex as the executing AI\u201d; \u201cuser correction led to explicit main-pipeline tracking\u201d; \u201cReviewer identities and raw replies are recorded\u201d; \u201csame model family as the executor\u201d",
+        "evidence": "None of PRE1/PRE2/P1\u2013P4, CFG, F or H records the executor, review dispatch/replies, user correction, main-pipeline tracking, family identity or exact subflow chronology. The review prompt itself labels this review provisional; that does not verify historical reviewers' serving identities.",
+        "status": "missing_evidence"
+      },
+      {
+        "location": "X:11",
+        "claim": "\u201cOne critical review corrected\u201d; \u201cidentified missing fractional SNR conditions\u201d; \u201cCode review then required\u201d; \u201cBoth fixes preceded P004\u201d; \u201cone review session serving several checklists\u201d; \u201cStudent-authored reflections and publication decisions are recorded separately\u201d",
+        "evidence": "P2 adds fractional conditions to P1's grid before F/P4; F records checkpoint, bytes and thresholds. The causal review attribution, exact timing of both implementation changes, number/nature of review sessions, student reflections and publication records are outside the permitted records. None is inferred from improved scientific measurements.",
+        "status": "missing_evidence"
+      }
+    ],
+    "provenance_note": "Reviewer read the initial draft. Small executor corrections were applied while it finished its findings. No dispatch-time immutable source snapshot exists; current source identities below are NOT claimed as the originally audited input set. A fresh post-edit audit is pending.",
+    "post_edit_source_identities": {
+      "main.tex": "sha256:87219153fe3cf0db78152951f651d86680c009d9241eff7dea01ea394e4f9910",
+      "sections/0_abstract.tex": "sha256:e3503bc2969ed3ee099cf838eecc09e662049cbf06548f2f1fabafd1868ae094",
+      "sections/1_introduction.tex": "sha256:1333248f6ff5d62f863cc3599c0916680c7f3960338f445039a096ce725a79e2",
+      "sections/2_related_work.tex": "sha256:d2c8c17fc2cc43a533ca1d3f1d997d9ec0a779dc12fd8841723fc9d8dcd3fbc4",
+      "sections/3_method.tex": "sha256:0a46ff62d1ecdb36a16823fec591e48f5ba3c48d712c24ea913477a77f4ed954",
+      "sections/4_protocol.tex": "sha256:2532c52aa80dc2338fd2e12ed549e5a8853cd3c4e5bdbe7cd4edabc6aa5bb54a",
+      "sections/5_results.tex": "sha256:d0d698d27bae0ed08b768e192387220e61c221161dfdb0bad688a31460dc0c78",
+      "sections/6_conclusion.tex": "sha256:bc9b3fc3cb84f28f2dbc78288d11fb932129bd5418180b986e05236d13e5273a",
+      "sections/7_appendix.tex": "sha256:8a19840e7fbb3b0a1b6c53b0a6425af86db322fbb880bdaf73881b9c7d5ba86e",
+      "figures/table_pilot.tex": "sha256:8e174997b18153cdfbb1200ea990498697820301faedc1c79a66fb2056c1fd73",
+      "figures/table_storage.tex": "sha256:9d493c85218e2506df3d855b3c3dc864366220862841fddcce56ad80ca90606b",
+      "figures/table_test.tex": "sha256:1c851b8ed4f1b4f5b6a69fc3af1cb38bb3e74c88271ea6e00a7950bbf799a70c"
+    },
+    "post_review_fixes": [
+      "Direct rounding 0.000186 dB in abstract/introduction/conclusion",
+      "3072 scalar RGB values, rather than 3072 spatial pixels",
+      "Bootstrap scope explicitly P002-P004",
+      "Source-snapshot statement limited to P002-P004"
+    ],
+    "new_executor_evidence": "results/deployment_identity_receipt_20261109.json; CPU only, no inference; not yet independently reviewed"
+  }
+}

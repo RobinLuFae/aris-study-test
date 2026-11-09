@@ -1,0 +1,20 @@
+{
+  "comparison": "continuous22 versus original R00020 + resumed2",
+  "checks": {
+    "state_dict": true,
+    "optimizer": true,
+    "stage_step": true,
+    "global_step": true,
+    "validation": true,
+    "sampler_order": true,
+    "sampler_offset": true,
+    "sampler_epoch": true,
+    "sampler_rng": true,
+    "torch_rng": true,
+    "cuda_rng": true,
+    "python_rng": true
+  },
+  "passed": true,
+  "max_parameter_abs_difference": 0.0,
+  "scope": "Same machine/software, fixed-SNR pretrain path; compares final not best checkpoints."
+}

@@ -1,0 +1,9 @@
+{
+  "approval": "User resumed work and said: 你先按一小时来吧，注意分段保存",
+  "recorded_at_utc": "2026-11-08T02:01:19+00:00",
+  "hard_deadline_utc": "2026-11-08T03:01:19+00:00",
+  "hard_deadline_local": "2026-11-08T11:01:19+08:00",
+  "segment_seconds": 1200,
+  "checkpoint_reserve_seconds": 30,
+  "policy": "Conservative one-hour wall-clock window, including gaps. Stop by deadline; no automatic renewal."
+}

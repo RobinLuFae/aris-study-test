@@ -1,0 +1,152 @@
+{
+  "evaluation_id": "P003_R003_full_validation",
+  "source_checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\checkpoints\\R003_witt_baseline_seed42_segment3\\adaptive_best.pt",
+  "source_global_step": 21500,
+  "split": "validation",
+  "variant": "linear13",
+  "serialized_reduction_fraction": 0.29721377813830385,
+  "roundtrip_difference": 0.0,
+  "maximum_signed_grid_loss_db": 0.00026418200531005834,
+  "maximum_loss_snr_db": 2.375,
+  "engineering_gate": {
+    "tolerance_db": 0.1,
+    "minimum_storage_reduction": 0.25,
+    "passed": true
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed_base": 20261108,
+    "unit": "original batch ID, jointly across methods/noise repeats",
+    "scope": "Pointwise descriptive percentile intervals conditional on this checkpoint, fixed batch members and recorded noise draws; not simultaneous or continuous-SNR bounds."
+  },
+  "cells": [
+    {
+      "snr_db": 1,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.001959621418577929,
+      "table_mse": 0.001959621421744426,
+      "original_psnr_db": 27.078278223697335,
+      "table_psnr_db": 27.078278216679692,
+      "loss_db": 7.017642407030438e-09,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -2.3859175161812616e-08,
+        3.8608932200033795e-08
+      ]
+    },
+    {
+      "snr_db": 1.5,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.0017705457879851263,
+      "table_mse": 0.0017704014154151081,
+      "original_psnr_db": 27.51892837495451,
+      "table_psnr_db": 27.519282518673297,
+      "loss_db": -0.00035414371878561524,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0005462881381499169,
+        -0.00016009648000909346
+      ]
+    },
+    {
+      "snr_db": 2.375,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.0014927666263654829,
+      "table_mse": 0.001492857434352239,
+      "original_psnr_db": 28.26008082967438,
+      "table_psnr_db": 28.25981664766907,
+      "loss_db": 0.00026418200531005834,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        1.5008514873071259e-05,
+        0.0005232753542285446
+      ]
+    },
+    {
+      "snr_db": 3,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.0013240544374411305,
+      "table_mse": 0.0013240544524043799,
+      "original_psnr_db": 28.780941588583456,
+      "table_psnr_db": 28.780941539503473,
+      "loss_db": 4.9079980370317544e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -3.050060110617438e-09,
+        1.070986421711981e-07
+      ]
+    },
+    {
+      "snr_db": 7,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.0006541230265206347,
+      "table_mse": 0.0006541230280262729,
+      "original_psnr_db": 31.843405625102434,
+      "table_psnr_db": 31.84340561510599,
+      "loss_db": 9.996443195086343e-09,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -8.603876355752038e-08,
+        1.0696901775850251e-07
+      ]
+    },
+    {
+      "snr_db": 12,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.0003258815806979934,
+      "table_mse": 0.0003258815804574018,
+      "original_psnr_db": 34.869401857983924,
+      "table_psnr_db": 34.86940186119023,
+      "loss_db": -3.206306377474864e-09,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -5.23540677353338e-08,
+        4.822955064290988e-08
+      ]
+    },
+    {
+      "snr_db": 12.5,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.00030844966960139573,
+      "table_mse": 0.00030843148940087607,
+      "original_psnr_db": 35.108156906181456,
+      "table_psnr_db": 35.108412889385114,
+      "loss_db": -0.00025598320365781543,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0002698880477839719,
+        -0.00024138560168880617
+      ]
+    },
+    {
+      "snr_db": 13,
+      "unique_images": 5000,
+      "batch_clusters": 40,
+      "last_batch_images": 8,
+      "noise_repeats": 3,
+      "original_mse": 0.00029312567844366034,
+      "table_mse": 0.0002931256741595765,
+      "original_psnr_db": 35.329461347587625,
+      "table_psnr_db": 35.329461411060535,
+      "loss_db": -6.347290992171091e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -1.145224775846167e-07,
+        -1.0719455078811374e-08
+      ]
+    }
+  ]
+}

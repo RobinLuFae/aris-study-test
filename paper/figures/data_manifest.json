@@ -1,0 +1,12 @@
+{
+  "sources": [
+    "results/P002_R003_summary.json",
+    "results/P004_R003_analysis.json",
+    "results/P002_gate_tables_R003_preparation.json",
+    "results/P001_pilot_summary_v2.json"
+  ],
+  "test_max_signed_loss_db": 0.00018648792025736705,
+  "test_max_absolute_change_db": 0.0003378461331543206,
+  "raw_inputs_unchanged": true,
+  "model_inference": false
+}

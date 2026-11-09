@@ -1,0 +1,32 @@
+\section{Model and Post-Training Compilation}
+\subsection{Author-component reproduction}
+For an image $x\in[0,1]^{3\times32\times32}$, let $f_\theta$ and $g_\phi$ denote the WITT encoder and decoder. Both receive SNR $s$ in decibels. The encoder produces real-valued latent features that the author channel implementation packs into complex symbols. After power normalization, the simulated channel adds independent real and imaginary Gaussian noise with standard deviation
+\begin{equation}
+ \sigma(s)=\sqrt{1/(2\,10^{s/10})}.
+\end{equation}
+The implementation restores the latent scale after transmission and passes the result to the decoder. Its normalization averages power over the batch; paired comparisons therefore preserve batch membership and order.
+
+We use the author's CIFAR-10 configuration with latent width $C=32$, two encoder stages of depths $[2,4]$, embedding dimensions $[128,256]$, and window size 2. The decoder reverses these stages. The channel bandwidth ratio (CBR) is $1/3$, defined as complex channel uses divided by real source samples. The original deployment has 13,715,056 learned parameters. The local training wrapper imports the author's model and channel components without modifying their source.
+
+\subsection{Scalar gate tabulation}
+For each of the 14 gates, let $h_j(s)\in\mathbb{R}^{384}$ be its trained scalar-to-vector map. Each map is a multilayer perceptron (MLP) with dimensions $1\to384\to384\to384$, hidden ReLU activations, and a final sigmoid. Including biases, it contains
+\begin{equation}
+ (384+384)+2(384^2+384)=296{,}448
+\end{equation}
+parameters. The 14 maps together contain 4,150,272 parameters.
+
+For $K$ uniformly spaced knots $s_k\in[1,13]$ dB, we evaluate $v_{j,k}=h_j(s_k)$ in FP32 after training. At runtime, for $s\in[s_k,s_{k+1}]$, we use
+\begin{equation}
+ \widetilde h_j(s)=(1-\alpha)v_{j,k}+\alpha v_{j,k+1},\qquad
+ \alpha=\frac{s-s_k}{s_{k+1}-s_k}.
+\end{equation}
+The main deployment uses $K=13$, giving integer-dB knots. Both the knots and gate outputs are stored as buffers. Their total is $14\times13\times(384+1)=70{,}070$ FP32 values, or 280,280 raw bytes. The retained learned-parameter count is 9,564,784. All image-dependent feature transformations, the Swin backbone, the channel implementation, and CBR remain unchanged. Compilation requires no additional training.
+
+We measure storage from the complete serialized inference files, including metadata, buffers, and serialization overhead. These files exclude optimizer state. We separately check that 223 retained non-gate tensors are unchanged and compare a freshly compiled deployment with the same deployment loaded from its saved file. The recorded maximum output difference for this same-variant witness is zero. This checks serialization fidelity; the original-versus-table reconstruction difference is measured separately.
+
+\begin{table}[t]
+ \centering\small
+ \input{figures/table_storage}
+ \caption{Current checkpoint (21,500 updates): complete inference-file sizes and learned-parameter counts. Table buffers are additional stored values, rather than learned parameters.}
+ \label{tab:storage}
+\end{table}

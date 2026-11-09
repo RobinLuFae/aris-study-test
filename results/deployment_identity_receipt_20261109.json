@@ -1,0 +1,53 @@
+{
+  "inspection": "CPU state comparison and top-level key inventory; no inference",
+  "retained_non_gate_tensor_count": 223,
+  "all_retained_tensors_equal": true,
+  "artifacts": {
+    "original": {
+      "path": "checkpoints\\P002_gate_tables_R003\\original.pt",
+      "bytes": 54987545,
+      "top_level_keys": [
+        "state_dict",
+        "config",
+        "model",
+        "source",
+        "source_checkpoint",
+        "source_global_step",
+        "variant",
+        "anchors",
+        "interpolation",
+        "format"
+      ],
+      "source": {
+        "url": "https://github.com/KeYang8/WITT",
+        "commit": "2460db52264ad35d0d7521c9f505fc318134c086",
+        "worktree_status": ""
+      },
+      "source_global_step": 21500,
+      "optimizer_state_present": false
+    },
+    "linear13": {
+      "path": "checkpoints\\P002_gate_tables_R003\\linear13.pt",
+      "bytes": 38644489,
+      "top_level_keys": [
+        "state_dict",
+        "config",
+        "model",
+        "source",
+        "source_checkpoint",
+        "source_global_step",
+        "variant",
+        "anchors",
+        "interpolation",
+        "format"
+      ],
+      "source": {
+        "url": "https://github.com/KeYang8/WITT",
+        "commit": "2460db52264ad35d0d7521c9f505fc318134c086",
+        "worktree_status": ""
+      },
+      "source_global_step": 21500,
+      "optimizer_state_present": false
+    }
+  }
+}

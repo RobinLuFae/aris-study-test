@@ -1,0 +1,22 @@
+{
+  "run_id": "P004_R003_final_test",
+  "split": "test",
+  "samples": 10000,
+  "noise_repeats": 3,
+  "snrs": [
+    1,
+    1.5,
+    2.375,
+    3,
+    7,
+    12,
+    12.5,
+    13
+  ],
+  "variants": [
+    "original",
+    "linear13"
+  ],
+  "noise_seed_base": 91001,
+  "freeze_file": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\configs\\P004_R003_test_freeze.json"
+}

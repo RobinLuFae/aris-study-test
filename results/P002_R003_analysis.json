@@ -1,0 +1,536 @@
+{
+  "evaluation_id": "P002_R003_dense_validation",
+  "source_checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\checkpoints\\R003_witt_baseline_seed42_segment3\\adaptive_best.pt",
+  "source_global_step": 21500,
+  "split": "validation",
+  "variant": "linear13",
+  "serialized_reduction_fraction": 0.29721377813830385,
+  "roundtrip_difference": 0.0,
+  "maximum_signed_grid_loss_db": 0.00045356161741924784,
+  "maximum_loss_snr_db": 2.25,
+  "engineering_gate": {
+    "tolerance_db": 0.1,
+    "minimum_storage_reduction": 0.25,
+    "passed": true
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed_base": 20261108,
+    "unit": "original batch ID, jointly across methods/noise repeats",
+    "scope": "Pointwise descriptive percentile intervals conditional on this checkpoint, fixed batch members and recorded noise draws; not simultaneous or continuous-SNR bounds."
+  },
+  "cells": [
+    {
+      "snr_db": 1.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.001927059014638265,
+      "table_mse": 0.0019270590394735337,
+      "original_psnr_db": 27.151049852203638,
+      "table_psnr_db": 27.15104979623327,
+      "loss_db": 5.597036715421414e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -6.930579563388154e-08,
+        2.2217445946071725e-07
+      ]
+    },
+    {
+      "snr_db": 1.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.00174669220050176,
+      "table_mse": 0.0017465739001830418,
+      "original_psnr_db": 27.577836190016058,
+      "table_psnr_db": 27.578130339812645,
+      "loss_db": -0.00029414979658278493,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0007907273770598964,
+        0.00022230521825401808
+      ]
+    },
+    {
+      "snr_db": 1.75,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0016504835685094198,
+      "table_mse": 0.0016505553374687831,
+      "original_psnr_db": 27.823887949575475,
+      "table_psnr_db": 27.823699106826773,
+      "loss_db": 0.0001888427486986048,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        6.7817507953458795e-06,
+        0.0003951998740202191
+      ]
+    },
+    {
+      "snr_db": 2.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.001574368601044019,
+      "table_mse": 0.0015743686159451803,
+      "original_psnr_db": 28.02893580326161,
+      "table_psnr_db": 28.028935762156294,
+      "loss_db": 4.110531728307875e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -6.78784149467672e-08,
+        1.546491284718464e-07
+      ]
+    },
+    {
+      "snr_db": 2.25,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0014983644634485244,
+      "table_mse": 0.0014985209554433823,
+      "original_psnr_db": 28.24382535626963,
+      "table_psnr_db": 28.243371794652212,
+      "loss_db": 0.00045356161741924784,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        1.0638958031136182e-05,
+        0.0008771547922087909
+      ]
+    },
+    {
+      "snr_db": 2.375,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0014732802013556162,
+      "table_mse": 0.0014734257658322652,
+      "original_psnr_db": 28.317146473665986,
+      "table_psnr_db": 28.31671739896545,
+      "loss_db": 0.0004290747005314909,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -9.59919843348755e-05,
+        0.0009999050711152367
+      ]
+    },
+    {
+      "snr_db": 2.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0014292668749888739,
+      "table_mse": 0.0014294051428635915,
+      "original_psnr_db": 28.448866714794157,
+      "table_psnr_db": 28.4484465968185,
+      "loss_db": 0.00042011797566278745,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        4.792779020729911e-05,
+        0.0008489775420174155
+      ]
+    },
+    {
+      "snr_db": 3.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0013020825733741125,
+      "table_mse": 0.0013020825684070588,
+      "original_psnr_db": 28.85361473506988,
+      "table_psnr_db": 28.853614751636908,
+      "loss_db": -1.6567029223361137e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -6.557323397945405e-08,
+        3.58987730035612e-08
+      ]
+    },
+    {
+      "snr_db": 3.375,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0012131149967511494,
+      "table_mse": 0.0012131574352582295,
+      "original_psnr_db": 29.160980284102212,
+      "table_psnr_db": 29.160828357144595,
+      "loss_db": 0.00015192695761443074,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0002936366960957135,
+        0.0006196165321883868
+      ]
+    },
+    {
+      "snr_db": 3.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0011841137285033862,
+      "table_mse": 0.0011840853641430537,
+      "original_psnr_db": 29.266065836861884,
+      "table_psnr_db": 29.266169869375144,
+      "loss_db": -0.00010403251326249801,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.000670125049707965,
+        0.0005414843868439956
+      ]
+    },
+    {
+      "snr_db": 4.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0010817933902144432,
+      "table_mse": 0.0010817934075991313,
+      "original_psnr_db": 29.6585567643635,
+      "table_psnr_db": 29.658556694571303,
+      "loss_db": 6.979219982342235e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -6.382957690349252e-08,
+        1.7560774366271706e-07
+      ]
+    },
+    {
+      "snr_db": 4.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0009852675969401995,
+      "table_mse": 0.0009852033232649168,
+      "original_psnr_db": 30.064457998667933,
+      "table_psnr_db": 30.064741318784268,
+      "loss_db": -0.00028332011632950223,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0007365810035664357,
+        0.00014598190667297072
+      ]
+    },
+    {
+      "snr_db": 5.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0009029891143242518,
+      "table_mse": 0.0009029891416430473,
+      "original_psnr_db": 30.443174851431998,
+      "table_psnr_db": 30.443174720041686,
+      "loss_db": 1.3139031061046477e-07,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -2.3675193606605326e-08,
+        2.980063442302227e-07
+      ]
+    },
+    {
+      "snr_db": 5.25,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0008634463821848233,
+      "table_mse": 0.0008634032905101777,
+      "original_psnr_db": 30.637646258373977,
+      "table_psnr_db": 30.63786300539967,
+      "loss_db": -0.00021674702568913917,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0003052673861156135,
+        -0.00011982036978441472
+      ]
+    },
+    {
+      "snr_db": 5.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0008274655565619469,
+      "table_mse": 0.0008274291853109996,
+      "original_psnr_db": 30.822500747805304,
+      "table_psnr_db": 30.82269164615297,
+      "loss_db": -0.00019089834766180717,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00044369843177842944,
+        4.073639383313322e-06
+      ]
+    },
+    {
+      "snr_db": 6.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0007584133396546046,
+      "table_mse": 0.0007584133396546046,
+      "original_psnr_db": 31.200940368416205,
+      "table_psnr_db": 31.200940368416205,
+      "loss_db": 0.0,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -7.290016718596532e-08,
+        5.849150482543947e-08
+      ]
+    },
+    {
+      "snr_db": 6.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0006967126652598382,
+      "table_mse": 0.0006966772899031639,
+      "original_psnr_db": 31.56946294528637,
+      "table_psnr_db": 31.56968346248108,
+      "loss_db": -0.00022051719470706874,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0003564740331577407,
+        -9.670465940675046e-05
+      ]
+    },
+    {
+      "snr_db": 7.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0006414640297492346,
+      "table_mse": 0.0006414640123645465,
+      "original_psnr_db": 31.928276917744878,
+      "table_psnr_db": 31.928277035445547,
+      "loss_db": -1.1770066361808722e-07,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -2.7691575141727555e-07,
+        1.6709175608743736e-08
+      ]
+    },
+    {
+      "snr_db": 7.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0005920549767712753,
+      "table_mse": 0.0005920215124885241,
+      "original_psnr_db": 32.27637963885484,
+      "table_psnr_db": 32.27662511882975,
+      "loss_db": -0.0002454799749063248,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00032851110288394526,
+        -0.00016129736555649794
+      ]
+    },
+    {
+      "snr_db": 8.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0005467182000478109,
+      "table_mse": 0.0005467182025313377,
+      "original_psnr_db": 32.62236468364215,
+      "table_psnr_db": 32.62236466391385,
+      "loss_db": 1.9728299019737634e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -9.602586019332107e-08,
+        1.3651422015921666e-07
+      ]
+    },
+    {
+      "snr_db": 8.25,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0005271849234898885,
+      "table_mse": 0.0005271539290746053,
+      "original_psnr_db": 32.78037018252385,
+      "table_psnr_db": 32.78062552175371,
+      "loss_db": -0.00025533922985884695,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00031818246754032446,
+        -0.00018767292788184143
+      ]
+    },
+    {
+      "snr_db": 8.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0005065302116175493,
+      "table_mse": 0.0005064881220459938,
+      "original_psnr_db": 32.95394646359979,
+      "table_psnr_db": 32.95430735082316,
+      "loss_db": -0.0003608872233661927,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00046809622389851115,
+        -0.00024895633169958056
+      ]
+    },
+    {
+      "snr_db": 9.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0004714619579414527,
+      "table_mse": 0.0004714619591832161,
+      "original_psnr_db": 33.26553344544137,
+      "table_psnr_db": 33.26553343400268,
+      "loss_db": 1.1438696172141564e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -1.759707446830448e-07,
+        1.6345792442829824e-07
+      ]
+    },
+    {
+      "snr_db": 9.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.00043843566129604975,
+      "table_mse": 0.0004384005181491375,
+      "original_psnr_db": 33.5809412862447,
+      "table_psnr_db": 33.58128941227204,
+      "loss_db": -0.000348126027339159,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0004148737817506293,
+        -0.00027622661142826405
+      ]
+    },
+    {
+      "snr_db": 10.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0004098348307112853,
+      "table_mse": 0.0004098348344365756,
+      "original_psnr_db": 33.87391134897971,
+      "table_psnr_db": 33.87391130950349,
+      "loss_db": 3.947622104929589e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        1.279284144134168e-08,
+        7.625607196883247e-08
+      ]
+    },
+    {
+      "snr_db": 10.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0003830111846327782,
+      "table_mse": 0.0003829818305869897,
+      "original_psnr_db": 34.16788543646589,
+      "table_psnr_db": 34.16821829328991,
+      "loss_db": -0.00033285682402855825,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00038560909428618414,
+        -0.00027182894333411297
+      ]
+    },
+    {
+      "snr_db": 11.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.00035933339844147365,
+      "table_mse": 0.00035933340216676396,
+      "original_psnr_db": 34.44502415178488,
+      "table_psnr_db": 34.44502410676059,
+      "loss_db": 4.502428717297013e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -2.943007803426816e-08,
+        1.2244478595238132e-07
+      ]
+    },
+    {
+      "snr_db": 11.25,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0003480831968287627,
+      "table_mse": 0.00034806549921631813,
+      "original_psnr_db": 34.58316941095724,
+      "table_psnr_db": 34.583390225144576,
+      "loss_db": -0.00022081418733861357,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0002635694999448525,
+        -0.00017688358715338184
+      ]
+    },
+    {
+      "snr_db": 11.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0003378195303181807,
+      "table_mse": 0.0003377962025503318,
+      "original_psnr_db": 34.71315246226736,
+      "table_psnr_db": 34.713452370051115,
+      "loss_db": -0.0002999077837608006,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.0003439817408086626,
+        -0.000253034933943939
+      ]
+    },
+    {
+      "snr_db": 12.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.000318580836057663,
+      "table_mse": 0.0003185808348158995,
+      "original_psnr_db": 34.967803523413174,
+      "table_psnr_db": 34.96780354034109,
+      "loss_db": -1.6927918171508252e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -6.791093039392882e-08,
+        3.571206987770731e-08
+      ]
+    },
+    {
+      "snr_db": 12.5,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.0003016957777241866,
+      "table_mse": 0.00030167877674102783,
+      "original_psnr_db": 35.204307677962355,
+      "table_psnr_db": 35.20455241593217,
+      "loss_db": -0.00024473796980975743,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -0.00029021288743755983,
+        -0.0001998037956511413
+      ]
+    },
+    {
+      "snr_db": 13.0,
+      "unique_images": 1000,
+      "batch_clusters": 8,
+      "last_batch_images": 104,
+      "noise_repeats": 3,
+      "original_mse": 0.000286395446707805,
+      "table_mse": 0.00028639544422427813,
+      "original_psnr_db": 35.430338909919556,
+      "table_psnr_db": 35.43033894758014,
+      "loss_db": -3.766058563797366e-08,
+      "pointwise_descriptive_95_percentile_interval_db": [
+        -1.274269029167147e-07,
+        7.675649455884353e-08
+      ]
+    }
+  ]
+}

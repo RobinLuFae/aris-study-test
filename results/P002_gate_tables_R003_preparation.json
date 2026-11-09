@@ -1,0 +1,757 @@
+{
+  "pilot_id": "P002_gate_tables_R003",
+  "source_checkpoint": "D:\\Electronic\\ChatGPT\\Codex\\人工智能与信息搜索\\AIRS\\checkpoints\\R003_witt_baseline_seed42_segment3\\adaptive_best.pt",
+  "device_for_preparation": "cpu",
+  "gpu_used": false,
+  "variants": [
+    {
+      "variant": "original",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\original.pt",
+      "serialized_bytes": 54987545,
+      "parameter_count": 13715056,
+      "state_tensor_bytes": 54874048,
+      "transformation": null,
+      "serialized_reduction_fraction": 0.0
+    },
+    {
+      "variant": "shared_snr",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\shared_snr.pt",
+      "serialized_bytes": 54989849,
+      "parameter_count": 13715056,
+      "state_tensor_bytes": 54874048,
+      "transformation": null,
+      "serialized_reduction_fraction": -4.19003976264154e-05
+    },
+    {
+      "variant": "linear3",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\linear3.pt",
+      "serialized_bytes": 38429449,
+      "parameter_count": 9564784,
+      "state_tensor_bytes": 38337640,
+      "transformation": {
+        "anchors": 3,
+        "interpolation": "linear",
+        "parameter_count_before": 13715056,
+        "parameter_count_after": 9564784,
+        "removed_parameter_count": 4150272,
+        "table_gate_values": 16128,
+        "table_knot_values": 42,
+        "modules": [
+          {
+            "side": "encoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.1439763754606247,
+            "dense_grid_rms_gate_error": 0.050082977861166
+          },
+          {
+            "side": "encoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.0024233758449554443,
+            "dense_grid_rms_gate_error": 0.0003281594254076481
+          },
+          {
+            "side": "encoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.002063453197479248,
+            "dense_grid_rms_gate_error": 0.0003312322369311005
+          },
+          {
+            "side": "encoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.004217773675918579,
+            "dense_grid_rms_gate_error": 0.0009218358318321407
+          },
+          {
+            "side": "encoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.009171456098556519,
+            "dense_grid_rms_gate_error": 0.002215794287621975
+          },
+          {
+            "side": "encoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.18568110466003418,
+            "dense_grid_rms_gate_error": 0.027678262442350388
+          },
+          {
+            "side": "encoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.18590949475765228,
+            "dense_grid_rms_gate_error": 0.03389768674969673
+          },
+          {
+            "side": "decoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.1432730257511139,
+            "dense_grid_rms_gate_error": 0.01806172914803028
+          },
+          {
+            "side": "decoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.08418987691402435,
+            "dense_grid_rms_gate_error": 0.006363277323544025
+          },
+          {
+            "side": "decoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.034420549869537354,
+            "dense_grid_rms_gate_error": 0.00530220614746213
+          },
+          {
+            "side": "decoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.05957990884780884,
+            "dense_grid_rms_gate_error": 0.010094968602061272
+          },
+          {
+            "side": "decoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.11364835500717163,
+            "dense_grid_rms_gate_error": 0.015398087911307812
+          },
+          {
+            "side": "decoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.13219287991523743,
+            "dense_grid_rms_gate_error": 0.02074616402387619
+          },
+          {
+            "side": "decoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1152,
+            "knot_values": 3,
+            "dense_grid_max_abs_gate_error": 0.25959014892578125,
+            "dense_grid_rms_gate_error": 0.03700990229845047
+          }
+        ],
+        "scope": "Post-training deployment transformation; image-dependent sm_list and backbone retained."
+      },
+      "serialized_reduction_fraction": 0.30112448191676866
+    },
+    {
+      "variant": "linear5",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\linear5.pt",
+      "serialized_bytes": 38472457,
+      "parameter_count": 9564784,
+      "state_tensor_bytes": 38380760,
+      "transformation": {
+        "anchors": 5,
+        "interpolation": "linear",
+        "parameter_count_before": 13715056,
+        "parameter_count_after": 9564784,
+        "removed_parameter_count": 4150272,
+        "table_gate_values": 26880,
+        "table_knot_values": 70,
+        "modules": [
+          {
+            "side": "encoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.08438372611999512,
+            "dense_grid_rms_gate_error": 0.01829979009926319
+          },
+          {
+            "side": "encoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0006374120712280273,
+            "dense_grid_rms_gate_error": 6.861560541437939e-05
+          },
+          {
+            "side": "encoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0008453428745269775,
+            "dense_grid_rms_gate_error": 9.61842670221813e-05
+          },
+          {
+            "side": "encoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0013685822486877441,
+            "dense_grid_rms_gate_error": 0.0002095479576382786
+          },
+          {
+            "side": "encoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0026743412017822266,
+            "dense_grid_rms_gate_error": 0.0004243931034579873
+          },
+          {
+            "side": "encoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.08568017184734344,
+            "dense_grid_rms_gate_error": 0.007018441334366798
+          },
+          {
+            "side": "encoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0950293317437172,
+            "dense_grid_rms_gate_error": 0.008868563920259476
+          },
+          {
+            "side": "decoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.07669220864772797,
+            "dense_grid_rms_gate_error": 0.006394237279891968
+          },
+          {
+            "side": "decoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.028871476650238037,
+            "dense_grid_rms_gate_error": 0.0020741652697324753
+          },
+          {
+            "side": "decoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.017140209674835205,
+            "dense_grid_rms_gate_error": 0.00194274983368814
+          },
+          {
+            "side": "decoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.038418352603912354,
+            "dense_grid_rms_gate_error": 0.005175439175218344
+          },
+          {
+            "side": "decoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.07546818256378174,
+            "dense_grid_rms_gate_error": 0.00802086666226387
+          },
+          {
+            "side": "decoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.058645471930503845,
+            "dense_grid_rms_gate_error": 0.008450734429061413
+          },
+          {
+            "side": "decoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.12559770047664642,
+            "dense_grid_rms_gate_error": 0.011237460188567638
+          }
+        ],
+        "scope": "Post-training deployment transformation; image-dependent sm_list and backbone retained."
+      },
+      "serialized_reduction_fraction": 0.3003423411610756
+    },
+    {
+      "variant": "linear9",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\linear9.pt",
+      "serialized_bytes": 38558473,
+      "parameter_count": 9564784,
+      "state_tensor_bytes": 38467000,
+      "transformation": {
+        "anchors": 9,
+        "interpolation": "linear",
+        "parameter_count_before": 13715056,
+        "parameter_count_after": 9564784,
+        "removed_parameter_count": 4150272,
+        "table_gate_values": 48384,
+        "table_knot_values": 126,
+        "modules": [
+          {
+            "side": "encoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.04088781774044037,
+            "dense_grid_rms_gate_error": 0.005305568687617779
+          },
+          {
+            "side": "encoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.000352323055267334,
+            "dense_grid_rms_gate_error": 3.327880403958261e-05
+          },
+          {
+            "side": "encoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.0006067752838134766,
+            "dense_grid_rms_gate_error": 7.476669270545244e-05
+          },
+          {
+            "side": "encoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.000984102487564087,
+            "dense_grid_rms_gate_error": 0.00016779864381533116
+          },
+          {
+            "side": "encoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.0021537840366363525,
+            "dense_grid_rms_gate_error": 0.000334560580085963
+          },
+          {
+            "side": "encoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.023083865642547607,
+            "dense_grid_rms_gate_error": 0.0017053823685273528
+          },
+          {
+            "side": "encoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.030343830585479736,
+            "dense_grid_rms_gate_error": 0.0021697673946619034
+          },
+          {
+            "side": "decoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.025690317153930664,
+            "dense_grid_rms_gate_error": 0.0018013380467891693
+          },
+          {
+            "side": "decoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.009218722581863403,
+            "dense_grid_rms_gate_error": 0.0006277652573771775
+          },
+          {
+            "side": "decoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.008429259061813354,
+            "dense_grid_rms_gate_error": 0.0008005872368812561
+          },
+          {
+            "side": "decoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.021201327443122864,
+            "dense_grid_rms_gate_error": 0.0022571326699107885
+          },
+          {
+            "side": "decoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.026961803436279297,
+            "dense_grid_rms_gate_error": 0.002742054406553507
+          },
+          {
+            "side": "decoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.016725867986679077,
+            "dense_grid_rms_gate_error": 0.0022108745761215687
+          },
+          {
+            "side": "decoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 3456,
+            "knot_values": 9,
+            "dense_grid_max_abs_gate_error": 0.03470742702484131,
+            "dense_grid_rms_gate_error": 0.0029379618354141712
+          }
+        ],
+        "scope": "Post-training deployment transformation; image-dependent sm_list and backbone retained."
+      },
+      "serialized_reduction_fraction": 0.29877805964968973
+    },
+    {
+      "variant": "linear13",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\linear13.pt",
+      "serialized_bytes": 38644489,
+      "parameter_count": 9564784,
+      "state_tensor_bytes": 38553240,
+      "transformation": {
+        "anchors": 13,
+        "interpolation": "linear",
+        "parameter_count_before": 13715056,
+        "parameter_count_after": 9564784,
+        "removed_parameter_count": 4150272,
+        "table_gate_values": 69888,
+        "table_knot_values": 182,
+        "modules": [
+          {
+            "side": "encoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.02356121689081192,
+            "dense_grid_rms_gate_error": 0.002410932444036007
+          },
+          {
+            "side": "encoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.00029408931732177734,
+            "dense_grid_rms_gate_error": 1.8963079128297977e-05
+          },
+          {
+            "side": "encoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.00032708048820495605,
+            "dense_grid_rms_gate_error": 2.956393473141361e-05
+          },
+          {
+            "side": "encoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.0005356967449188232,
+            "dense_grid_rms_gate_error": 8.191772940335795e-05
+          },
+          {
+            "side": "encoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.0012804269790649414,
+            "dense_grid_rms_gate_error": 0.00018703527166508138
+          },
+          {
+            "side": "encoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.010488629341125488,
+            "dense_grid_rms_gate_error": 0.0007620325777679682
+          },
+          {
+            "side": "encoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.013158947229385376,
+            "dense_grid_rms_gate_error": 0.0009632855071686208
+          },
+          {
+            "side": "decoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.011644095182418823,
+            "dense_grid_rms_gate_error": 0.00095829350175336
+          },
+          {
+            "side": "decoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.004845678806304932,
+            "dense_grid_rms_gate_error": 0.00028116695466451347
+          },
+          {
+            "side": "decoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.005411058664321899,
+            "dense_grid_rms_gate_error": 0.00043207418639212847
+          },
+          {
+            "side": "decoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.0150175541639328,
+            "dense_grid_rms_gate_error": 0.0013558563077822328
+          },
+          {
+            "side": "decoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.01591402292251587,
+            "dense_grid_rms_gate_error": 0.0012763799168169498
+          },
+          {
+            "side": "decoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.008992224931716919,
+            "dense_grid_rms_gate_error": 0.0010170828318223357
+          },
+          {
+            "side": "decoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 4992,
+            "knot_values": 13,
+            "dense_grid_max_abs_gate_error": 0.015979528427124023,
+            "dense_grid_rms_gate_error": 0.0013502142392098904
+          }
+        ],
+        "scope": "Post-training deployment transformation; image-dependent sm_list and backbone retained."
+      },
+      "serialized_reduction_fraction": 0.29721377813830385
+    },
+    {
+      "variant": "nearest5",
+      "artifact": "checkpoints\\P002_gate_tables_R003\\nearest5.pt",
+      "serialized_bytes": 38472457,
+      "parameter_count": 9564784,
+      "state_tensor_bytes": 38380760,
+      "transformation": {
+        "anchors": 5,
+        "interpolation": "nearest",
+        "parameter_count_before": 13715056,
+        "parameter_count_after": 9564784,
+        "removed_parameter_count": 4150272,
+        "table_gate_values": 26880,
+        "table_knot_values": 70,
+        "modules": [
+          {
+            "side": "encoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.21039456129074097,
+            "dense_grid_rms_gate_error": 0.04173143953084946
+          },
+          {
+            "side": "encoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0029602348804473877,
+            "dense_grid_rms_gate_error": 0.00028650069725699723
+          },
+          {
+            "side": "encoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.0023813843727111816,
+            "dense_grid_rms_gate_error": 0.00018507085042074323
+          },
+          {
+            "side": "encoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.004447758197784424,
+            "dense_grid_rms_gate_error": 0.0005593044916167855
+          },
+          {
+            "side": "encoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.010806351900100708,
+            "dense_grid_rms_gate_error": 0.0015198583714663982
+          },
+          {
+            "side": "encoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.2707507908344269,
+            "dense_grid_rms_gate_error": 0.036652032285928726
+          },
+          {
+            "side": "encoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.268826425075531,
+            "dense_grid_rms_gate_error": 0.03912801295518875
+          },
+          {
+            "side": "decoder",
+            "index": 0,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.2546543478965759,
+            "dense_grid_rms_gate_error": 0.020741522312164307
+          },
+          {
+            "side": "decoder",
+            "index": 1,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.1378042846918106,
+            "dense_grid_rms_gate_error": 0.010168168693780899
+          },
+          {
+            "side": "decoder",
+            "index": 2,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.07894936203956604,
+            "dense_grid_rms_gate_error": 0.013030593283474445
+          },
+          {
+            "side": "decoder",
+            "index": 3,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.11555856466293335,
+            "dense_grid_rms_gate_error": 0.018019039183855057
+          },
+          {
+            "side": "decoder",
+            "index": 4,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.12511250376701355,
+            "dense_grid_rms_gate_error": 0.02322523482143879
+          },
+          {
+            "side": "decoder",
+            "index": 5,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.23455935716629028,
+            "dense_grid_rms_gate_error": 0.028827572241425514
+          },
+          {
+            "side": "decoder",
+            "index": 6,
+            "removed_parameters": 296448,
+            "gate_values": 1920,
+            "knot_values": 5,
+            "dense_grid_max_abs_gate_error": 0.38936227560043335,
+            "dense_grid_rms_gate_error": 0.038438793271780014
+          }
+        ],
+        "scope": "Post-training deployment transformation; image-dependent sm_list and backbone retained."
+      },
+      "serialized_reduction_fraction": 0.3003423411610756
+    }
+  ],
+  "metrics": "Storage and gate-function approximation only; no image quality evaluated yet."
+}

@@ -1,0 +1,20 @@
+{
+  "run_id": "P003_R003_full_validation",
+  "split": "validation",
+  "samples": 5000,
+  "noise_repeats": 3,
+  "snrs": [
+    1,
+    1.5,
+    2.375,
+    3,
+    7,
+    12,
+    12.5,
+    13
+  ],
+  "variants": [
+    "original",
+    "linear13"
+  ]
+}
